@@ -1,563 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasan Ayuba, M.Pd. — IAIN Sultan Amai Gorontalo</title>
-  <meta name="description" content="Personal academic website of Hasan Ayuba, M.Pd. — Lecturer at Department of English Language Education, IAIN Sultan Amai Gorontalo">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; }
-    @media(max-width:768px){.desk-nav{display:none!important}.mob-btn{display:block!important}.mob-nav{display:flex!important}}
-    @media(min-width:769px){.desk-nav{display:flex!important}.mob-btn{display:none!important}.mob-nav{display:none!important}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hasan Ayuba, M.Pd. | IAIN Sultan Amai Gorontalo</title>
+<meta name="description" content="Hasan Ayuba, M.Pd. - Lecturer, Department of English Language Education, IAIN Sultan Amai Gorontalo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#6C3CE1;--sec:#FF6B35;--acc:#00C9A7;--hi:#FFD23F;--dk:#1A1A2E;--dkr:#0F0F1A;--lt:#F8F7FF;--txt:#2D2D3F;--mut:#8888AA;--card:#FFF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--lt);color:var(--txt)}
+.pf{font-family:'Playfair Display',Georgia,serif}
+.grad-text{background:linear-gradient(135deg,var(--pri),var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;transition:all .4s}
+.nav.scrolled{background:rgba(15,15,26,.95);backdrop-filter:blur(20px);padding:10px 20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;cursor:pointer}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:7px 16px;border-radius:50px;border:none;cursor:pointer;background:transparent;color:#AAAACC;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;transition:all .3s}
+.nav-link.active{background:rgba(108,60,225,.2);color:#FFF}
+.nav-link:hover{color:#FFF}
+.mob-toggle{display:none;background:none;border:none;color:#FFF;font-size:22px;cursor:pointer}
+.mob-menu{display:none;flex-direction:column;gap:2px;padding:8px 16px;background:rgba(15,15,26,.98);border-top:1px solid rgba(255,255,255,.06)}
+.mob-menu.open{display:flex}
+@media(max-width:768px){.nav-links{display:none}.mob-toggle{display:block}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg,var(--dkr) 0%,var(--dk) 40%,#2A1A5E 100%);position:relative;overflow:hidden;padding:80px 20px 40px}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px)}
+.hero-blob-1{top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(108,60,225,.3),transparent 70%)}
+.hero-blob-2{bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,53,.25),transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(24px,4vw,60px)}
+.hero-text{flex:1 1 380px}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.badge{display:inline-block;padding:4px 12px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:.3px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,54px);font-weight:800;color:#FFF;line-height:1.15;margin-bottom:14px}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:#B8B8D0;line-height:1.7;margin-bottom:8px}
+.hero-desc{font-size:clamp(13px,1.4vw,15px);color:#9090AA;line-height:1.7;max-width:520px;margin-bottom:20px}
+.social-row{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:17px;transition:all .3s}
+.social-icon:hover{background:rgba(108,60,225,.18);border-color:rgba(108,60,225,.4)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{padding:12px 24px;border-radius:50px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--pri),var(--sec));color:#FFF;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;box-shadow:0 8px 30px rgba(108,60,225,.5)}
+.btn-secondary{padding:12px 24px;border-radius:50px;cursor:pointer;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#FFF;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500}
+.hero-avatar{flex:0 0 auto}
+.avatar-ring{width:clamp(180px,22vw,260px);height:clamp(180px,22vw,260px);border-radius:50%;background:linear-gradient(135deg,rgba(108,60,225,.4),rgba(255,107,53,.4));display:flex;align-items:center;justify-content:center;border:4px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(108,60,225,.3);position:relative}
+.avatar-img{width:85%;height:85%;border-radius:50%;background-size:cover;background-position:center top}
+.avatar-tag{position:absolute;bottom:6px;right:6px;background:var(--acc);border-radius:50px;padding:5px 12px;font-size:11px;color:#FFF;font-weight:700}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:36px;width:100%}
+.stat-card{padding:16px 10px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:center}
+.stat-icon{font-size:20px;margin-bottom:2px}
+.stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#FFF}
+.stat-label{font-size:10px;color:#8888AA;text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+
+/* SECTION */
+.section{padding:clamp(48px,8vw,80px) clamp(16px,4vw,24px)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,36px);font-weight:800;margin-bottom:8px}
+.section-title p{color:var(--mut);font-size:15px;max-width:550px;margin:0 auto}
+
+/* CARD */
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid #EEEDF5;transition:all .3s;margin-bottom:12px}
+.card:hover{box-shadow:0 16px 48px rgba(108,60,225,.1);transform:translateY(-3px)}
+.card-dark{background:linear-gradient(135deg,var(--dk),#2A1A5E);border:none;color:#FFF}
+
+/* PUBS */
+.pub-row{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.pub-year{min-width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.pub-info{flex:1;min-width:180px}
+.pub-info h4{font-size:14px;font-weight:700;margin-bottom:3px}
+.pub-info p{font-size:12px;color:var(--mut);font-style:italic}
+
+/* CONTACT */
+.contact-section{padding:clamp(48px,8vw,80px) clamp(16px,4vw,24px);background:linear-gradient(160deg,var(--dkr),var(--dk));position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:28px}
+.contact-card{padding:18px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:center}
+.contact-card .icon{font-size:24px;margin-bottom:6px}
+.contact-card .label{font-size:10px;color:#8888AA;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+.contact-card .value{font-size:12px;color:#FFF;font-weight:500;word-break:break-word}
+
+/* FOOTER */
+footer{padding:16px;text-align:center;background:var(--dkr);border-top:1px solid rgba(255,255,255,.05)}
+footer .social-row{justify-content:center;margin-bottom:8px}
+footer p{font-size:11px;color:#666680}
+
+/* PAGE HIDE */
+.page{display:none}.page.active{display:block}
+
+/* ABOUT */
+.edu-card{border-left:4px solid var(--pri);margin-bottom:10px}
+.ri-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:32px}
+.ri-card{padding:14px;text-align:center}
+.ri-card .ri-icon{font-size:24px;margin-bottom:4px}
+.ri-card p{font-size:12px;font-weight:600}
+
+/* RESOURCES */
+.filter-row{display:flex;justify-content:center;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.filter-btn{padding:7px 16px;border-radius:50px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;transition:all .3s}
+.filter-btn.active{background:var(--dk);color:#FFF}
+.filter-btn:not(.active){background:#F5F3FF;color:var(--txt)}
+
+/* BLOG */
+.blog-card{cursor:pointer}
+.blog-feat{background:linear-gradient(135deg,var(--dk),#2A1A5E);border:none;color:#FFF;cursor:pointer}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:28px}
+
+/* OFFICE HOURS */
+.oh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.oh-card{padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.04);text-align:center}
+.oh-day{font-size:12px;font-weight:600;color:var(--acc)}
+.oh-time{font-size:11px;color:#B8B8D0;margin-top:2px}
+
+@media(max-width:600px){.hero-avatar{order:-1;width:100%;display:flex;justify-content:center}.pub-row{flex-direction:column}}
+</style>
 </head>
 <body>
-  <div id="root"></div>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
 
-// ============ THEME ============
-const C = {
-  pri: "#6C3CE1", sec: "#FF6B35", acc: "#00C9A7", hi: "#FFD23F",
-  dark: "#1A1A2E", darker: "#0F0F1A", light: "#F8F7FF", card: "#FFFFFF",
-  text: "#2D2D3F", muted: "#8888AA", err: "#E74C3C", ok: "#27AE60",
-};
+<!-- NAV -->
+<nav class="nav" id="navbar">
+<div class="nav-inner">
+  <div class="nav-logo" onclick="showPage('home')"><span class="grad-text">H. Ayuba</span></div>
+  <button class="mob-toggle" id="mobToggle" onclick="toggleMob()">☰</button>
+  <div class="nav-links" id="navLinks"></div>
+</div>
+<div class="mob-menu" id="mobMenu"></div>
+</nav>
 
-const PAGES = ["Home", "About", "Listening Lab", "Blog", "Resources", "Contact"];
-
-// ============ EXERCISES DATA (30 total) ============
-const exercises = [
-  // BEGINNER (10)
-  { id:1, level:"Beginner", title:"At the Airport", dur:"2:30", cat:"Daily Conversation", desc:"Listen to a conversation between a passenger and airport staff checking in for a flight.", qs:[
-    {q:"Where is the passenger going?",o:["Tokyo","Singapore","Bangkok","Seoul"],a:1},{q:"What time is the flight?",o:["10:00 AM","2:30 PM","4:15 PM","7:00 PM"],a:2},{q:"What gate should the passenger go to?",o:["Gate 5","Gate 12","Gate 18","Gate 23"],a:3}]},
-  { id:2, level:"Beginner", title:"Ordering Food at a Restaurant", dur:"2:00", cat:"Daily Conversation", desc:"Listen to a customer ordering food and interacting with a waiter.", qs:[
-    {q:"What does the customer order?",o:["Steak","Pasta","Grilled chicken","Salmon"],a:2},{q:"What drink does the customer choose?",o:["Coffee","Juice","Water","Tea"],a:0},{q:"How does the customer pay?",o:["Cash","Credit card","Mobile payment","Gift card"],a:1}]},
-  { id:3, level:"Beginner", title:"Asking for Directions", dur:"2:15", cat:"Daily Conversation", desc:"Listen to a tourist asking a local for directions to a nearby museum.", qs:[
-    {q:"Where does the tourist want to go?",o:["The park","The museum","The library","The hospital"],a:1},{q:"How far is the destination?",o:["2 blocks","5 blocks","10 min by bus","Across the street"],a:0},{q:"What landmark to look for?",o:["A red building","A tall statue","A blue sign","A fountain"],a:2}]},
-  { id:4, level:"Beginner", title:"At the Doctor's Office", dur:"2:45", cat:"Daily Conversation", desc:"Listen to a patient describing symptoms to a doctor during a routine visit.", qs:[
-    {q:"Patient's main complaint?",o:["Headache","Stomachache","Sore throat","Back pain"],a:2},{q:"How long has the patient been sick?",o:["One day","Three days","A week","Two weeks"],a:1},{q:"What does the doctor recommend?",o:["Surgery","Rest and medicine","More tests","A specialist"],a:1}]},
-  { id:5, level:"Beginner", title:"Shopping for Clothes", dur:"2:00", cat:"Daily Conversation", desc:"Listen to a shopper asking for help finding the right size and color.", qs:[
-    {q:"What item is the shopper looking for?",o:["A jacket","Jeans","A dress","A T-shirt"],a:0},{q:"What size does the shopper need?",o:["Small","Medium","Large","Extra Large"],a:1},{q:"What color is chosen?",o:["Red","Black","Navy blue","White"],a:2}]},
-  { id:6, level:"Beginner", title:"Checking Into a Hotel", dur:"2:30", cat:"Daily Conversation", desc:"Listen to a guest checking into a hotel and asking about amenities.", qs:[
-    {q:"How many nights will the guest stay?",o:["One","Two","Three","Five"],a:2},{q:"What floor is the room on?",o:["2nd","5th","7th","10th"],a:1},{q:"What time is breakfast?",o:["6–9 AM","7–10 AM","8–11 AM","9–12 PM"],a:1}]},
-  { id:7, level:"Beginner", title:"Making a Phone Call", dur:"1:45", cat:"Social", desc:"Listen to someone calling a friend to make weekend plans.", qs:[
-    {q:"What day will they meet?",o:["Friday","Saturday","Sunday","Monday"],a:1},{q:"What activity do they agree on?",o:["Movie","Dinner","Sports","Museum"],a:0},{q:"What time will they meet?",o:["2:00 PM","4:00 PM","6:30 PM","8:00 PM"],a:2}]},
-  { id:8, level:"Beginner", title:"At the Supermarket", dur:"2:10", cat:"Daily Conversation", desc:"Listen to a shopper and cashier at checkout.", qs:[
-    {q:"How much is the total?",o:["$15.50","$23.75","$31.20","$45.00"],a:1},{q:"Does the shopper have a loyalty card?",o:["Yes","No","Forgot it","Just signed up"],a:2},{q:"What does the shopper ask about?",o:["Return policy","Store hours","Plastic bags","Discounts"],a:0}]},
-  { id:9, level:"Beginner", title:"Introducing Yourself", dur:"1:30", cat:"Social", desc:"Listen to two students meeting at orientation day.", qs:[
-    {q:"Where is the first student from?",o:["Jakarta","Surabaya","Makassar","Bandung"],a:3},{q:"Second student's major?",o:["Engineering","English Literature","Medicine","Business"],a:1},{q:"Where do they go together?",o:["Library","Cafeteria","Bookstore","Dorm"],a:1}]},
-  { id:10, level:"Beginner", title:"Weather Forecast", dur:"1:45", cat:"Media", desc:"Listen to a short weather forecast from a morning news program.", qs:[
-    {q:"What is today's weather?",o:["Sunny","Rainy","Cloudy with showers","Snowy"],a:2},{q:"Expected high temperature?",o:["25°C","30°C","32°C","35°C"],a:2},{q:"What does the forecaster advise?",o:["Stay indoors","Bring an umbrella","Wear sunscreen","Drive carefully"],a:1}]},
-  // INTERMEDIATE (10)
-  { id:11, level:"Intermediate", title:"Lecture: Climate Change", dur:"5:00", cat:"Academic", desc:"Listen to a lecture about the effects of climate change on coastal cities.", qs:[
-    {q:"Main topic of the lecture?",o:["Ocean pollution","Rising sea levels","Air quality","Deforestation"],a:1},{q:"How many cities at risk?",o:["Over 50","Over 100","Over 200","Over 500"],a:2},{q:"What solution is suggested?",o:["Sea walls","Reducing emissions","Moving populations","All of the above"],a:3},{q:"Most affected region?",o:["North America","Europe","Southeast Asia","Africa"],a:2}]},
-  { id:12, level:"Intermediate", title:"Job Interview Tips", dur:"4:30", cat:"Professional", desc:"Listen to a career coach giving advice on succeeding in job interviews.", qs:[
-    {q:"First tip the coach gives?",o:["Dress well","Research the company","Arrive early","Bring your resume"],a:1},{q:"How to answer behavioral questions?",o:["Keep it short","Use STAR method","Be vague","Avoid examples"],a:1},{q:"What to do after the interview?",o:["Call daily","Send thank-you email","Visit the office","Post on social media"],a:1},{q:"Common mistake warned about?",o:["Speaking too fast","Criticizing past employers","Being too confident","Asking about salary first"],a:1}]},
-  { id:13, level:"Intermediate", title:"Radio Interview: Entrepreneur", dur:"5:30", cat:"Media", desc:"Listen to a radio interview with a young entrepreneur who started a coffee business.", qs:[
-    {q:"When did the business start?",o:["High school","After college","During college","After losing a job"],a:2},{q:"Biggest challenge?",o:["Finding customers","Getting funding","Hiring staff","Choosing location"],a:1},{q:"Advice given?",o:["Save money first","Start small, learn fast","Get a degree","Find a partner"],a:1},{q:"How many stores now?",o:["3","5","8","12"],a:2}]},
-  { id:14, level:"Intermediate", title:"Campus Tour Guide", dur:"4:00", cat:"Academic", desc:"Listen to a university tour guide describing facilities to prospective students.", qs:[
-    {q:"How old is the university?",o:["25 years","50 years","75 years","100 years"],a:2},{q:"What's special about the library?",o:["Largest in country","Open 24 hours","Rooftop garden","Recently renovated"],a:1},{q:"Where is the cafeteria?",o:["Ground floor Bldg A","2nd floor Student Center","Near sports complex","Behind library"],a:1},{q:"University's famous sport?",o:["Football","Basketball","Swimming","Badminton"],a:3}]},
-  { id:15, level:"Intermediate", title:"Podcast: Healthy Eating", dur:"6:00", cat:"Media", desc:"Listen to a nutritionist discussing tips for eating well on a budget.", qs:[
-    {q:"First recommendation?",o:["Skip breakfast","Meal planning","Take supplements","Eat less carbs"],a:1},{q:"Monthly savings from meal planning?",o:["$50","$100","$150","$200"],a:2},{q:"Most emphasized food group?",o:["Dairy","Protein","Vegetables & fruits","Grains"],a:2},{q:"Common mistake mentioned?",o:["Eating too fast","Shopping when hungry","Skipping lunch","Too much coffee"],a:1}]},
-  { id:16, level:"Intermediate", title:"Customer Service Complaint", dur:"4:15", cat:"Professional", desc:"Listen to a customer complaining about a defective product.", qs:[
-    {q:"What product is defective?",o:["Laptop","Washing machine","Smartphone","Television"],a:2},{q:"When was it purchased?",o:["Last week","Two weeks ago","Last month","Three months ago"],a:1},{q:"Agent's first offer?",o:["Full refund","Repair","Replacement","Store credit"],a:1},{q:"What does customer accept?",o:["Full refund","Repair","Replacement","Store credit"],a:2}]},
-  { id:17, level:"Intermediate", title:"Documentary: Ocean Life", dur:"5:45", cat:"Academic", desc:"Listen to a documentary about marine biodiversity and threats to oceans.", qs:[
-    {q:"Earth covered by oceans?",o:["50%","60%","70%","80%"],a:2},{q:"Biggest threat to coral reefs?",o:["Fishing","Rising temperatures","Oil spills","Plastic waste"],a:1},{q:"Fish species identified?",o:["~10,000","~20,000","~30,000","~50,000"],a:2},{q:"Encouraged action?",o:["Donate","Reduce plastic","Stop seafood","Write politicians"],a:1}]},
-  { id:18, level:"Intermediate", title:"Planning a Group Project", dur:"4:30", cat:"Academic", desc:"Listen to three students planning their group assignment.", qs:[
-    {q:"Assignment topic?",o:["Marketing strategy","Historical analysis","Science experiment","Literary review"],a:0},{q:"Who does the research?",o:["Anna","Ben","Carlos","All equally"],a:0},{q:"Deadline?",o:["Next Monday","Next Wednesday","Next Friday","In two weeks"],a:2},{q:"How will they finalize?",o:["Library","Coffee shop","Zoom","Anna's house"],a:2}]},
-  { id:19, level:"Intermediate", title:"Museum Guide: Ancient Egypt", dur:"5:00", cat:"Academic", desc:"Listen to an audio guide about ancient Egyptian artifacts.", qs:[
-    {q:"Oldest artifact age?",o:["2,000 years","3,000 years","4,500 years","5,000 years"],a:2},{q:"Pharaoh's mask material?",o:["Bronze","Silver","Gold","Copper"],a:2},{q:"Purpose of hieroglyphics?",o:["Decoration","History & religion","Military codes","Trade"],a:1},{q:"Where were artifacts found?",o:["Pyramids","Near the Nile","Underground tombs","Temples"],a:2}]},
-  { id:20, level:"Intermediate", title:"News: Tech in Education", dur:"4:00", cat:"Media", desc:"Listen to a news report about technology in classrooms.", qs:[
-    {q:"Schools using tablets?",o:["40%","55%","65%","80%"],a:2},{q:"Parents' concern?",o:["Cost","Screen time","Privacy","Distraction"],a:3},{q:"Teacher's view on tech?",o:["Replaces textbooks","Increases engagement","More homework","Unnecessary"],a:1}]},
-  // ADVANCED (10)
-  { id:21, level:"Advanced", title:"TED Talk: Future of Education", dur:"8:00", cat:"Academic", desc:"Listen to an excerpt about how AI will reshape education systems worldwide.", qs:[
-    {q:"View on traditional education?",o:["Perfect","Needs reform","Should be abolished","Too expensive"],a:1},{q:"AI's envisioned role?",o:["Replace teachers","Personalize learning","Grade papers","Manage schools"],a:1},{q:"Main concern?",o:["Cost","Access equity","Teacher jobs","Student privacy"],a:1},{q:"Supporting example?",o:["Finland's model","Khan Academy","China's AI classrooms","Stanford online"],a:2}]},
-  { id:22, level:"Advanced", title:"Debate: Social Media Regulation", dur:"7:00", cat:"Academic", desc:"Listen to an academic debate on whether governments should regulate social media.", qs:[
-    {q:"Speaker A's main argument?",o:["Free speech absolute","Regulation protects users","Self-regulation works","Social media harmless"],a:1},{q:"Speaker B's evidence?",o:["Academic studies","Personal experience","Economic data","Historical precedent"],a:3},{q:"Both speakers agree on?",o:["No regulation","Transparency important","Ban social media","Ban children"],a:1},{q:"Stronger evidence?",o:["Speaker A","Speaker B","Both equal","Not stated"],a:3}]},
-  { id:23, level:"Advanced", title:"Lecture: Psycholinguistics", dur:"9:00", cat:"Academic", desc:"Listen to a lecture on how the brain processes and acquires a second language.", qs:[
-    {q:"Critical period ends at?",o:["Age 5","Age 7","Age 12","Age 18"],a:2},{q:"Brain region for production?",o:["Wernicke's area","Broca's area","Hippocampus","Cerebellum"],a:1},{q:"Bilingual brains show?",o:["Larger size","Faster aging","More cognitive flexibility","Better math"],a:2},{q:"Recommended research method?",o:["Surveys","fMRI scanning","Observation","Testing"],a:1}]},
-  { id:24, level:"Advanced", title:"Panel: Globalization & Culture", dur:"8:30", cat:"Academic", desc:"Listen to experts discuss the impact of globalization on local cultures and languages.", qs:[
-    {q:"Endangered languages?",o:["~500","~1,500","~3,000","~7,000"],a:2},{q:"English as global language?",o:["Should be only one","Threatens local languages","Economic opportunity","Both B and C"],a:3},{q:"Third panelist's solution?",o:["Ban foreign media","Bilingual education","Internet censorship","Cultural isolation"],a:1},{q:"Overall tone?",o:["Angry","Optimistic but cautious","Pessimistic","Lighthearted"],a:1}]},
-  { id:25, level:"Advanced", title:"Seminar: AI Ethics in Healthcare", dur:"10:00", cat:"Academic", desc:"Listen to a seminar on ethical implications of AI in healthcare decisions.", qs:[
-    {q:"Presenter's thesis?",o:["AI replaces doctors","Ethics frameworks needed","AI too expensive","AI untrustworthy"],a:1},{q:"Case study discussed?",o:["Skin cancer diagnosis","Prescribing medication","Surgery robots","Hospital scheduling"],a:0},{q:"Highlighted bias?",o:["Gender","Age","Racial in training data","All of these"],a:2},{q:"Audience Q&A topic?",o:["Funding","Patient consent","Data security","Legal liability"],a:3}]},
-  { id:26, level:"Advanced", title:"BBC: History of English", dur:"8:00", cat:"Media", desc:"Listen to a documentary tracing the evolution of English from Old English to today.", qs:[
-    {q:"Old English began?",o:["3rd century","5th century","7th century","9th century"],a:1},{q:"Influenced Middle English?",o:["Roman invasion","Norman Conquest","Industrial Revolution","Printing press"],a:1},{q:"Shakespeare invented?",o:["~500 words","~1,000","~1,700","~3,000"],a:2},{q:"Future of English?",o:["Simpler","Fragment into dialects","Absorb new words","Replaced by Mandarin"],a:2}]},
-  { id:27, level:"Advanced", title:"Business Negotiation", dur:"7:30", cat:"Professional", desc:"Listen to a simulated negotiation between two companies on partnership terms.", qs:[
-    {q:"Company A's initial offer?",o:["60-40 split","50-50","70-30","Equal investment"],a:0},{q:"Why B rejects?",o:["Too much risk","Want exclusivity","Unequal sharing","Shorter contract"],a:2},{q:"Compromise reached?",o:["55-45 with bonus","50-50 flat","60-40 with review","No agreement"],a:0},{q:"A's technique?",o:["Ultimatum","Anchoring high","Silence","Emotional appeal"],a:1}]},
-  { id:28, level:"Advanced", title:"Research: L2 Motivation", dur:"9:30", cat:"Academic", desc:"Listen to a thesis presentation on motivation factors in L2 learning among Indonesian students.", qs:[
-    {q:"Methodology used?",o:["Quantitative","Qualitative","Mixed methods","Meta-analysis"],a:2},{q:"Number of participants?",o:["50","120","250","500"],a:2},{q:"Strongest motivator?",o:["Teacher enthusiasm","Career advancement","Integrative motivation","Parental pressure"],a:1},{q:"Limitation acknowledged?",o:["Small sample","One university only","Short duration","No control group"],a:1}]},
-  { id:29, level:"Advanced", title:"Cross-Cultural Communication", dur:"8:00", cat:"Professional", desc:"Listen to an intercultural communication expert on global workplace misunderstandings.", qs:[
-    {q:"Most common miscommunication source?",o:["Language barriers","Attitudes to time","Body language","Email etiquette"],a:0},{q:"High-context culture example?",o:["Direct refusal preferred","Silence = disagreement","Contracts unnecessary","Informal meetings"],a:1},{q:"Strategy for global teams?",o:["Always use English","Shared communication norms","Avoid video calls","In person only"],a:1},{q:"Framework referenced?",o:["Maslow's hierarchy","Hofstede's dimensions","Bloom's taxonomy","Vygotsky's ZPD"],a:1}]},
-  { id:30, level:"Advanced", title:"Keynote: Future of Language Teaching", dur:"10:00", cat:"Academic", desc:"Listen to a TESOL conference keynote on adapting language teaching to the digital age.", qs:[
-    {q:"Speaker calls this era?",o:["Digital Age","Post-Method Era","AI Renaissance","Communication Revolution"],a:1},{q:"Practice criticized?",o:["Grammar translation","Communicative approach","Task-based learning","Content-based"],a:0},{q:"Technology endorsed?",o:["VR classrooms","AI chatbots","Grammar checkers","Social media"],a:1},{q:"Call to action?",o:["Publish research","Integrate tech in curricula","Raise salaries","Reduce class sizes"],a:1}]},
-];
-
-// ============ BLOG DATA ============
-const blogPosts = [
-  { id:1, title:"5 Common Listening Mistakes Indonesian Students Make", date:"Mar 15, 2026", cat:"Teaching Tips", excerpt:"After a decade of teaching listening comprehension, I've identified five recurring patterns that hold Indonesian EFL learners back. Here's what they are and strategies to overcome each one.", time:"6 min", feat:true },
-  { id:2, title:"Why Podcasts Are the Best Tool for Listening Skills", date:"Mar 1, 2026", cat:"Learning Strategy", excerpt:"Discover how incorporating English podcasts into your daily routine can dramatically improve your listening comprehension, vocabulary, and pronunciation.", time:"5 min", feat:false },
-  { id:3, title:"The Science Behind Active Listening", date:"Feb 18, 2026", cat:"Research", excerpt:"A review of recent neurolinguistic studies reveals fascinating insights about how our brains process spoken language in real-time.", time:"8 min", feat:true },
-  { id:4, title:"From Passive to Active: Transforming Your Listening Classes", date:"Feb 5, 2026", cat:"Teaching Tips", excerpt:"Traditional listening classes often involve playing audio and answering questions. Here's how to make sessions truly interactive.", time:"7 min", feat:false },
-  { id:5, title:"Top 10 YouTube Channels for Listening Practice (2026)", date:"Jan 20, 2026", cat:"Resources", excerpt:"A curated list of the best YouTube channels for different levels — from beginner-friendly slow English to advanced academic content.", time:"4 min", feat:false },
-  { id:6, title:"TOEFL Listening: A Complete Preparation Guide", date:"Jan 8, 2026", cat:"Exam Prep", excerpt:"Comprehensive strategies for mastering the TOEFL listening section, including note-taking techniques and time management.", time:"10 min", feat:false },
-  { id:7, title:"Technology in Modern Language Classrooms", date:"Dec 15, 2025", cat:"Research", excerpt:"Exploring how AI tools, language apps, and multimedia platforms are reshaping how we teach and learn English.", time:"7 min", feat:false },
-  { id:8, title:"Helping Anxious Students with Listening Tasks", date:"Dec 1, 2025", cat:"Teaching Tips", excerpt:"Listening anxiety is real. Learn evidence-based approaches to help students overcome their fear of not understanding.", time:"6 min", feat:false },
-];
-
-// ============ OTHER DATA ============
-const resList = [
-  { title:"Listening Comprehension Syllabus 2025/2026", type:"PDF", size:"2.1 MB", cat:"Syllabus" },
-  { title:"Module 1: Fundamentals of Active Listening", type:"PDF", size:"4.5 MB", cat:"Module" },
-  { title:"Module 2: Note-Taking Strategies", type:"PDF", size:"3.8 MB", cat:"Module" },
-  { title:"Module 3: Academic Listening Skills", type:"PDF", size:"5.2 MB", cat:"Module" },
-  { title:"Module 4: Listening for Specific Information", type:"PDF", size:"4.1 MB", cat:"Module" },
-  { title:"Audio Pack — Beginner", type:"ZIP", size:"45 MB", cat:"Audio" },
-  { title:"Audio Pack — Intermediate", type:"ZIP", size:"62 MB", cat:"Audio" },
-  { title:"Audio Pack — Advanced", type:"ZIP", size:"78 MB", cat:"Audio" },
-  { title:"Midterm Study Guide", type:"PDF", size:"1.8 MB", cat:"Exam Prep" },
-  { title:"Final Exam Study Guide", type:"PDF", size:"2.3 MB", cat:"Exam Prep" },
-  { title:"Grading Rubric", type:"PDF", size:"0.5 MB", cat:"Assessment" },
-];
-const pubs = [
-  { y:2025, t:"A Bibliometric Analysis of Trends, Challenges, and Innovations in English Teaching Materials: A Global Review", j:"English Learning Innovation (englie) 6(2), 418-432", tp:"Article" },
-  { y:2025, t:"Global Research Trends of Role-play Method in English Language Teaching: A Bibliometric Analysis", j:"JETAL: Journal of English Teaching & Applied Linguistic 7(1), 18-26", tp:"Article" },
-  { y:2025, t:"The Effect of Flashcard Media on English Vocabulary Acquisition in Elementary School", j:"JETLI 4(2), 75-87", tp:"Article" },
-  { y:2024, t:"Digital Transformation in Tourism Education: Driving Forces and Challenges", j:"JETLI 3(3), 174-182", tp:"Article" },
-  { y:2024, t:"The Correlation of Watching English Movies Habit and Listening Skill", j:"J. of English Language Teaching, Linguistics, and Literature Studies 4", tp:"Article" },
-  { y:2023, t:"Trends and Developments in Online Collaborative Writing: A Bibliometric Review", j:"JETLI 2(1), 41-55", tp:"Review" },
-  { y:2022, t:"The Implementation of Choral Reading Method in Improving Student's Reading Fluency", j:"JETLI 1(2), 47-65", tp:"Article" },
-  { y:2022, t:"Development of Web-Based English Proficiency Test Model for EFL Classroom", j:"Al-Lisan: Jurnal Bahasa 7(1), 17-36", tp:"Article" },
-  { y:2016, t:"Pemerolehan Fonologi dan Sintaksis (Sebuah Studi Kasus Pada Anak Usia 2 Tahun)", j:"LingTera", tp:"Article" },
-  { y:2015, t:"Pengembangan Tes Gramatika Berbasis Web untuk Mahasiswa Pendidikan Bahasa Inggris", j:"LingTera 2(2), 111-121", tp:"Article" },
-];
-
-// ============ UI HELPERS ============
-const lCol = { Beginner: C.acc, Intermediate: C.hi, Advanced: C.sec };
-const catCol = { "Teaching Tips":C.pri, "Learning Strategy":C.acc, Research:C.sec, Resources:C.hi, "Exam Prep":"#9B59B6" };
-const catIco = { "Teaching Tips":"💡", "Learning Strategy":"🎯", Research:"🔬", Resources:"📦", "Exam Prep":"✍️" };
-const rIco = { Syllabus:"📋", Module:"📖", Audio:"🔊", "Exam Prep":"✍️", Assessment:"📊" };
-
-function Badge({ children, color = C.pri }) {
-  return <span style={{ display:"inline-block", padding:"4px 12px", borderRadius:50, background:color+"18", color, fontSize:12, fontWeight:600, letterSpacing:.3 }}>{children}</span>;
-}
-function G({ children }) {
-  return <span style={{ background:`linear-gradient(135deg,${C.pri},${C.sec})`, WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>{children}</span>;
-}
-function Card({ children, style={}, onClick }) {
-  const [h,sH]=useState(false);
-  return <div onMouseEnter={()=>sH(true)} onMouseLeave={()=>sH(false)} onClick={onClick} style={{ background:C.card, borderRadius:16, padding:24, boxShadow:h?"0 16px 48px rgba(108,60,225,.1)":"0 2px 12px rgba(0,0,0,.04)", border:"1px solid #EEEDF5", transition:"all .3s", transform:h&&onClick?"translateY(-3px)":"none", cursor:onClick?"pointer":"default", ...style }}>{children}</div>;
-}
-function Sec({ children, bg=C.light }) {
-  return <section style={{ padding:"clamp(48px,8vw,80px) clamp(16px,4vw,24px)", background:bg }}><div style={{ maxWidth:1100, margin:"0 auto" }}>{children}</div></section>;
-}
-function ST({ pre, title, sub }) {
-  return <div style={{ textAlign:"center", marginBottom:40 }}>
-    {pre && <div style={{ fontSize:32, marginBottom:8 }}>{pre}</div>}
-    <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(26px,4vw,36px)", fontWeight:800, color:C.dark, margin:"0 0 8px" }}><G>{title}</G></h2>
-    {sub && <p style={{ fontFamily:"'DM Sans',sans-serif", color:C.muted, fontSize:15, maxWidth:550, margin:"0 auto" }}>{sub}</p>}
-  </div>;
-}
-function SocIcon({ icon, label }) {
-  const [h,sH]=useState(false);
-  return <a href="#" onMouseEnter={()=>sH(true)} onMouseLeave={()=>sH(false)} style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:40, height:40, borderRadius:12, background:h?`${C.pri}18`:"rgba(255,255,255,.06)", border:`1px solid ${h?C.pri+"40":"rgba(255,255,255,.1)"}`, fontSize:17, textDecoration:"none", transition:"all .3s" }} title={label}>{icon}</a>;
-}
-
-// ============ HERO ============
-function Hero({ setPage }) {
-  const [v,sV]=useState(false);
-  useEffect(()=>{setTimeout(()=>sV(true),100)},[]);
-  return <section style={{ minHeight:"100vh", display:"flex", alignItems:"center", background:`linear-gradient(160deg,${C.darker} 0%,${C.dark} 40%,#2A1A5E 100%)`, position:"relative", overflow:"hidden", padding:"80px clamp(16px,4vw,24px) 40px" }}>
-    <div style={{ position:"absolute", top:-120, right:-120, width:500, height:500, borderRadius:"50%", background:`radial-gradient(circle,${C.pri}30,transparent 70%)`, filter:"blur(60px)" }}/>
-    <div style={{ position:"absolute", bottom:-80, left:-80, width:400, height:400, borderRadius:"50%", background:`radial-gradient(circle,${C.sec}25,transparent 70%)`, filter:"blur(50px)" }}/>
-    <div style={{ position:"absolute", top:"40%", left:"50%", width:300, height:300, borderRadius:"50%", background:`radial-gradient(circle,${C.acc}15,transparent 70%)`, filter:"blur(40px)" }}/>
-    <div style={{ maxWidth:1100, margin:"0 auto", width:"100%", position:"relative", zIndex:1 }}>
-      <div style={{ display:"flex", flexWrap:"wrap", alignItems:"center", gap:"clamp(24px,4vw,60px)" }}>
-        <div style={{ flex:"1 1 380px", opacity:v?1:0, transform:v?"translateY(0)":"translateY(40px)", transition:"all .9s cubic-bezier(.4,0,.2,1)" }}>
-          <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:16 }}>
-            <Badge color={C.acc}>Lecturer</Badge><Badge color={C.hi}>Researcher</Badge><Badge color={C.sec}>Author</Badge>
-          </div>
-          <h1 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(32px,5vw,54px)", fontWeight:800, color:"#FFF", lineHeight:1.15, margin:"0 0 14px" }}>Hi, I'm <G>Hasan Ayuba, M.Pd.</G></h1>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:"clamp(15px,2vw,18px)", color:"#B8B8D0", lineHeight:1.7, margin:"0 0 8px" }}>Lecturer at <strong style={{ color:"#FFF" }}>IAIN Sultan Amai Gorontalo</strong></p>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:"clamp(13px,1.4vw,15px)", color:"#9090AA", lineHeight:1.7, maxWidth:520, margin:"0 0 20px" }}>Lecturer in the Department of English Language Education. Specializing in English teaching methodology, digital technology in language learning, and applied linguistics.</p>
-          <div style={{ display:"flex", gap:10, marginBottom:24, flexWrap:"wrap" }}>
-            <SocIcon icon="🎓" label="Google Scholar"/><SocIcon icon="📊" label="SINTA"/><SocIcon icon="🆔" label="ORCID"/><SocIcon icon="📘" label="ResearchGate"/><SocIcon icon="💼" label="LinkedIn"/><SocIcon icon="📸" label="Instagram"/>
-          </div>
-          <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
-            <button onClick={()=>setPage("Listening Lab")} style={{ padding:"12px 24px", borderRadius:50, border:"none", cursor:"pointer", background:`linear-gradient(135deg,${C.pri},${C.sec})`, color:"#FFF", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:600, boxShadow:`0 8px 30px ${C.pri}50` }}>🎧 Listening Lab</button>
-            <button onClick={()=>setPage("About")} style={{ padding:"12px 24px", borderRadius:50, cursor:"pointer", background:"rgba(255,255,255,.06)", border:"1px solid rgba(255,255,255,.15)", color:"#FFF", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:500 }}>👤 About Me</button>
-          </div>
-        </div>
-        <div style={{ flex:"0 0 auto", opacity:v?1:0, transform:v?"scale(1)":"scale(.8)", transition:"all 1s cubic-bezier(.4,0,.2,1) .2s" }}>
-          <div style={{ width:"clamp(180px,22vw,260px)", height:"clamp(180px,22vw,260px)", borderRadius:"50%", background:`linear-gradient(135deg,${C.pri}40,${C.sec}40)`, display:"flex", alignItems:"center", justifyContent:"center", border:"4px solid rgba(255,255,255,.1)", boxShadow:`0 30px 80px ${C.pri}30`, position:"relative" }}>
-            <div style={{ width:"85%", height:"85%", borderRadius:"50%", backgroundImage:"url(data:image/jpeg;base64,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)", backgroundSize:"cover", backgroundPosition:"center top" }} />
-            <div style={{ position:"absolute", bottom:6, right:6, background:C.acc, borderRadius:50, padding:"5px 12px", fontSize:11, color:"#FFF", fontWeight:700, fontFamily:"'DM Sans',sans-serif" }}>Gorontalo</div>
-          </div>
-        </div>
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badges">
+        <span class="badge" style="background:rgba(0,201,167,.1);color:var(--acc)">Lecturer</span>
+        <span class="badge" style="background:rgba(255,210,63,.1);color:var(--hi)">Researcher</span>
+        <span class="badge" style="background:rgba(255,107,53,.1);color:var(--sec)">Writer</span>
       </div>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(120px,1fr))", gap:12, marginTop:36, opacity:v?1:0, transition:"all .8s .5s" }}>
-        {[{n:"10+",l:"Years Teaching",i:"📚"},{n:"15+",l:"Publications",i:"📝"},{n:"1,200+",l:"Students",i:"🎓"},{n:"4",l:"Grants",i:"🏆"},{n:"3",l:"Books",i:"📖"}].map((s,i)=>
-          <div key={i} style={{ padding:"16px 10px", borderRadius:14, background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.08)", textAlign:"center" }}>
-            <div style={{ fontSize:20, marginBottom:2 }}>{s.i}</div>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:22, fontWeight:800, color:"#FFF" }}>{s.n}</div>
-            <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:10, color:"#8888AA", textTransform:"uppercase", letterSpacing:.8, marginTop:2 }}>{s.l}</div>
-          </div>
-        )}
+      <h1 class="pf">Hi, I'm <span class="grad-text">Hasan Ayuba, M.Pd.</span></h1>
+      <p class="hero-sub">Lecturer at <strong style="color:#FFF">IAIN Sultan Amai Gorontalo</strong></p>
+      <p class="hero-desc">Lecturer in the Department of English Language Education. Specializing in English teaching methodology, digital technology in language learning, and applied linguistics.</p>
+      <div class="social-row">
+        <a href="#" class="social-icon" title="Google Scholar">🎓</a>
+        <a href="#" class="social-icon" title="SINTA">📊</a>
+        <a href="#" class="social-icon" title="ORCID">🆔</a>
+        <a href="#" class="social-icon" title="ResearchGate">📘</a>
+        <a href="#" class="social-icon" title="LinkedIn">💼</a>
+        <a href="#" class="social-icon" title="Instagram">📸</a>
+      </div>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="showPage('listening')">🎧 Listening Lab</button>
+        <button class="btn-secondary" onclick="showPage('about')">👤 About Me</button>
       </div>
     </div>
-  </section>;
+    <div class="hero-avatar">
+      <div class="avatar-ring">
+        <div class="avatar-img" id="avatarImg"></div>
+        <span class="avatar-tag">Gorontalo</span>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-icon">📚</div><div class="stat-num pf">9+</div><div class="stat-label">Years Teaching</div></div>
+      <div class="stat-card"><div class="stat-icon">📝</div><div class="stat-num pf">12+</div><div class="stat-label">Publications</div></div>
+      <div class="stat-card"><div class="stat-icon">🎓</div><div class="stat-num pf">500+</div><div class="stat-label">Students</div></div>
+      <div class="stat-card"><div class="stat-icon">📈</div><div class="stat-num pf">10+</div><div class="stat-label">Cited Works</div></div>
+      <div class="stat-card"><div class="stat-icon">📖</div><div class="stat-num pf">4+</div><div class="stat-label">Journals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" style="background:var(--lt)">
+<div class="section-inner">
+  <div class="section-title"><h2><span class="grad-text">Selected Publications</span></h2><p>Research in English language teaching &amp; applied linguistics</p></div>
+  <div id="pubList" style="max-width:900px;margin:0 auto"></div>
+</div>
+</section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+<section class="section" style="background:#FFF;padding-top:100px">
+<div class="section-inner">
+  <div class="section-title"><div style="font-size:32px;margin-bottom:8px">👤</div><h2><span class="grad-text">About Me</span></h2><p>Education, experience, research interests, and professional journey</p></div>
+  <div class="card card-dark" style="margin-bottom:28px">
+    <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+      <div id="aboutAvatar" style="width:90px;height:90px;border-radius:50%;flex-shrink:0;background-size:cover;background-position:center top"></div>
+      <div style="flex:1;min-width:240px">
+        <h3 class="pf" style="font-size:22px;font-weight:800;margin-bottom:6px">Hasan Ayuba, M.Pd.</h3>
+        <p style="font-size:13px;color:#B8B8D0;line-height:1.7">A lecturer in the Department of English Language Education at IAIN Sultan Amai Gorontalo, active in education since 2016. Born in Gorontalo on February 4, 1987. Research focuses on digital technology in English language teaching and the development of interactive and adaptive teaching methods.</p>
+      </div>
+    </div>
+  </div>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">🎓 Education</h3>
+  <div id="eduList" style="margin-bottom:32px"></div>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">🔬 Research Interests</h3>
+  <div class="ri-grid" id="riList"></div>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">💼 Experience</h3>
+  <div id="expList" style="margin-bottom:32px"></div>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">📜 Certifications &amp; Awards</h3>
+  <div class="ri-grid" id="certList"></div>
+</div>
+</section>
+</div>
+
+<!-- LISTENING LAB PAGE -->
+<div class="page" id="page-listening">
+<section class="section" style="background:linear-gradient(180deg,#F0ECFF,var(--lt));padding-top:100px;min-height:80vh">
+<div class="section-inner">
+  <div class="section-title"><div style="font-size:32px;margin-bottom:8px">🎧</div><h2><span class="grad-text">Listening Lab</span></h2><p>Practice listening skills with 30 interactive exercises at every level</p></div>
+  <div class="filter-row" id="levelFilter"></div>
+  <div id="exerciseGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px"></div>
+  <div id="exerciseDetail" style="display:none"></div>
+</div>
+</section>
+</div>
+
+<!-- BLOG PAGE -->
+<div class="page" id="page-blog">
+<section class="section" style="background:#FFF;padding-top:100px">
+<div class="section-inner">
+  <div class="section-title"><div style="font-size:32px;margin-bottom:8px">✍️</div><h2><span class="grad-text">Blog &amp; Articles</span></h2><p>Insights on English teaching, learning strategies, and research</p></div>
+  <div class="filter-row" id="blogFilter"></div>
+  <div class="blog-grid" id="blogFeatured"></div>
+  <div id="blogList"></div>
+</div>
+</section>
+</div>
+
+<!-- RESOURCES PAGE -->
+<div class="page" id="page-resources">
+<section class="section" style="background:var(--lt);padding-top:100px">
+<div class="section-inner">
+  <div class="section-title"><div style="font-size:32px;margin-bottom:8px">📁</div><h2><span class="grad-text">Course Resources</span></h2><p>Download syllabi, modules, audio packs, and materials</p></div>
+  <div class="filter-row" id="resFilter"></div>
+  <div id="resList"></div>
+</div>
+</section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+<section class="contact-section" style="padding-top:100px">
+<div style="max-width:800px;margin:0 auto;position:relative;z-index:1">
+  <div class="section-title"><div style="font-size:32px;margin-bottom:8px">📬</div><h2><span class="grad-text">Get in Touch</span></h2></div>
+  <p style="color:#8888AA;text-align:center;margin:-24px auto 32px;font-size:14px;max-width:500px">Open for research collaboration, guest lectures, thesis supervision, and academic consultations.</p>
+  <div class="contact-grid">
+    <div class="contact-card"><div class="icon">📧</div><div class="label">Email</div><div class="value">hasan.ayuba@iaingorontalo.ac.id</div></div>
+    <div class="contact-card"><div class="icon">🏢</div><div class="label">Office</div><div class="value">Dept. of English Language Education</div></div>
+    <div class="contact-card"><div class="icon">📱</div><div class="label">WhatsApp</div><div class="value">+62 [Contact Number]</div></div>
+    <div class="contact-card"><div class="icon">🔬</div><div class="label">Google Scholar</div><div class="value">View Profile →</div></div>
+    <div class="contact-card"><div class="icon">📊</div><div class="label">SINTA</div><div class="value">View Profile →</div></div>
+    <div class="contact-card"><div class="icon">🆔</div><div class="label">ORCID</div><div class="value">0000-0000-0000-0000</div></div>
+    <div class="contact-card"><div class="icon">📘</div><div class="label">ResearchGate</div><div class="value">View Profile →</div></div>
+    <div class="contact-card"><div class="icon">💼</div><div class="label">LinkedIn</div><div class="value">View Profile →</div></div>
+  </div>
+  <div class="card" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+    <h3 style="font-size:15px;font-weight:700;color:#FFF;margin-bottom:10px;text-align:center">🕐 Office Hours</h3>
+    <div class="oh-grid">
+      <div class="oh-card"><div class="oh-day">Monday</div><div class="oh-time">09:00–11:00</div></div>
+      <div class="oh-card"><div class="oh-day">Wednesday</div><div class="oh-time">13:00–15:00</div></div>
+      <div class="oh-card"><div class="oh-day">Friday</div><div class="oh-time">10:00–12:00 (by appt)</div></div>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="social-row">
+  <a href="#" class="social-icon" title="Google Scholar">🎓</a>
+  <a href="#" class="social-icon" title="SINTA">📊</a>
+  <a href="#" class="social-icon" title="ORCID">🆔</a>
+  <a href="#" class="social-icon" title="ResearchGate">📘</a>
+  <a href="#" class="social-icon" title="LinkedIn">💼</a>
+</div>
+<p>© 2026 Hasan Ayuba, M.Pd. — IAIN Sultan Amai Gorontalo. Department of English Language Education.</p>
+</footer>
+
+<script>
+// === PHOTO ===
+var PHOTO="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";
+document.getElementById('avatarImg').style.backgroundImage='url(data:image/jpeg;base64,'+PHOTO+')';
+document.getElementById('aboutAvatar').style.backgroundImage='url(data:image/jpeg;base64,'+PHOTO+')';
+
+// === NAV ===
+var pages=['home','about','listening','blog','resources','contact'];
+var pageLabels=['Home','About','Listening Lab','Blog','Resources','Contact'];
+var currentPage='home';
+
+function buildNav(){
+  var nl=document.getElementById('navLinks');
+  var mm=document.getElementById('mobMenu');
+  nl.innerHTML='';mm.innerHTML='';
+  pages.forEach(function(pg,i){
+    var b=document.createElement('button');
+    b.className='nav-link'+(currentPage===pg?' active':'');
+    b.textContent=pageLabels[i];
+    b.onclick=function(){showPage(pg)};
+    nl.appendChild(b);
+    var b2=b.cloneNode(true);
+    b2.style.width='100%';b2.style.textAlign='left';b2.style.padding='10px 14px';b2.style.borderRadius='10px';
+    b2.onclick=function(){showPage(pg)};
+    mm.appendChild(b2);
+  });
 }
 
-// ============ ABOUT ============
-function About() {
-  return <Sec bg="#FFF">
-    <ST pre="👤" title="About Me" sub="Education, experience, research interests, and professional journey"/>
-    <Card style={{ marginBottom:28, background:`linear-gradient(135deg,${C.dark},#2A1A5E)`, border:"none" }}>
-      <div style={{ display:"flex", gap:20, flexWrap:"wrap", alignItems:"center" }}>
-        <div style={{ width:90, height:90, borderRadius:"50%", background:`linear-gradient(135deg,${C.pri}60,${C.sec}60)`, flexShrink:0, backgroundImage:"url(data:image/jpeg;base64,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)", backgroundSize:"cover", backgroundPosition:"center top" }></div>
-        <div style={{ flex:1, minWidth:240 }}>
-          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:22, fontWeight:800, color:"#FFF", margin:"0 0 6px" }}>Hasan Ayuba, M.Pd.</h3>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#B8B8D0", lineHeight:1.7, margin:0 }}>A lecturer in the Department of English Language Education at IAIN Sultan Amai Gorontalo, active in education since 2016. Born in Gorontalo on February 4, 1987. Research focuses on digital technology in English language teaching and the development of interactive and adaptive teaching methods.</p>
-        </div>
-      </div>
-    </Card>
-    <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:18, fontWeight:700, color:C.dark, margin:"0 0 14px" }}>🎓 Education</h3>
-    <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:32 }}>
-      {[{d:"Master of Education (M.Pd.)",f:"Applied Linguistics — English Language Education",u:"Universitas Negeri Yogyakarta",y:"2012–2014",th:"Applied Linguistics with focus on English Language Education"},
-        {d:"Bachelor of Education (S.Pd.)",f:"Tadris English Education",u:"IAIN Sultan Amai Gorontalo",y:"2007–2011",th:"English Language Education"}
-      ].map((e,i)=><Card key={i} style={{ borderLeft:`4px solid ${[C.pri,C.sec][i%2]}` }}>
-        <div style={{ display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:6, marginBottom:2 }}>
-          <h4 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, color:C.dark, margin:0 }}>{e.d}</h4>
-          <Badge color={[C.pri,C.sec][i%2]}>{e.y}</Badge>
-        </div>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:C.text, margin:"2px 0" }}>{e.f} — {e.u}</p>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:C.muted, margin:"2px 0 0", fontStyle:"italic" }}>Thesis: {e.th}</p>
-      </Card>)}
-    </div>
-    <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:18, fontWeight:700, color:C.dark, margin:"0 0 14px" }}>🔬 Research Interests</h3>
-    <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))", gap:10, marginBottom:32 }}>
-      {["Digital Technology in ELT","Bibliometric Analysis","Applied Linguistics","English Teaching Methodology","Web-Based Language Testing","Adaptive Teaching Methods"].map((r,i)=>
-        <Card key={i} style={{ padding:14, textAlign:"center" }}>
-          <div style={{ fontSize:24, marginBottom:4 }}>{["🎧","💻","🧠","📚","🖥️","💡"][i]}</div>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, fontWeight:600, color:C.dark, margin:0 }}>{r}</p>
-        </Card>
-      )}
-    </div>
-    <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:18, fontWeight:700, color:C.dark, margin:"0 0 14px" }}>💼 Experience</h3>
-    <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:32 }}>
-      {[{r:"Lecturer",o:"IAIN Sultan Amai Gorontalo, Dept. of English Language Education",p:"2016–Present",d:"Teaching English courses including Listening Comprehension. Active in research and academic journal management."},
-        {r:"Academic Journal Manager",o:"IAIN Sultan Amai Gorontalo",p:"2018–Present",d:"Involved in management of academic journals, contributing to scholarly articles on language education."},
-        {r:"Researcher",o:"IAIN Sultan Amai Gorontalo",p:"2016–Present",d:"Conducting research on digital technology in English teaching, bibliometric analysis, and adaptive teaching methods."},
-        {r:"Community Service",o:"Various schools in Gorontalo Province",p:"2019–Present",d:"English literacy programs and anti-bullying education at elementary schools."}
-      ].map((e,i)=><Card key={i}>
-        <div style={{ display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:6, marginBottom:2 }}>
-          <h4 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, color:C.dark, margin:0 }}>{e.r}</h4>
-          <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:C.muted }}>{e.p}</span>
-        </div>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:C.pri, margin:"2px 0", fontWeight:600 }}>{e.o}</p>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:C.muted, margin:"2px 0 0" }}>{e.d}</p>
-      </Card>)}
-    </div>
-    <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:18, fontWeight:700, color:C.dark, margin:"0 0 14px" }}>📜 Certifications & Awards</h3>
-    <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(240px,1fr))", gap:10 }}>
-      {[{n:"Sertifikat Pendidik",o:"Kemendikbudristek",y:"2019",i:"🏅"},{n:"Master of Education (M.Pd.)",o:"Universitas Negeri Yogyakarta",y:"2014",i:"📄"},{n:"Active Researcher & Journal Manager",o:"IAIN Sultan Amai Gorontalo",y:"2018–Present",i:"🏆"},{n:"Community Service — Anti-Bullying Program",o:"SDN 03 Popayato Barat",y:"2025",i:"⭐"}].map((c,i)=>
-        <Card key={i} style={{ padding:14 }}>
-          <div style={{ fontSize:22, marginBottom:6 }}>{c.i}</div>
-          <h4 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, fontWeight:700, color:C.dark, margin:"0 0 2px" }}>{c.n}</h4>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:C.muted, margin:0 }}>{c.o} • {c.y}</p>
-        </Card>
-      )}
-    </div>
-  </Sec>;
+function showPage(pg){
+  currentPage=pg;
+  pages.forEach(function(p){
+    var el=document.getElementById('page-'+p);
+    if(el)el.classList.toggle('active',p===pg);
+  });
+  buildNav();
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('mobToggle').textContent='☰';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ============ LISTENING LAB ============
-function Lab() {
-  const [lv,sLv]=useState("All");
-  const [act,sAct]=useState(null);
-  const [ans,sAns]=useState({});
-  const [sub,sSub]=useState(false);
-  const [play,sPlay]=useState(false);
-  const [prog,sProg]=useState(0);
-  const [tk,sTk]=useState({});
-  const [showTk,sShowTk]=useState(false);
-  const ref=useRef(null);
+function toggleMob(){
+  var m=document.getElementById('mobMenu');
+  var t=document.getElementById('mobToggle');
+  m.classList.toggle('open');
+  t.textContent=m.classList.contains('open')?'✕':'☰';
+}
 
-  const filt=lv==="All"?exercises:exercises.filter(e=>e.level===lv);
-  const doPlay=()=>{if(play){clearInterval(ref.current);sPlay(false)}else{sPlay(true);ref.current=setInterval(()=>sProg(p=>{if(p>=100){clearInterval(ref.current);sPlay(false);return 100}return p+.5}),100)}};
-  const start=ex=>{sAct(ex);sAns({});sSub(false);sPlay(false);sProg(0);clearInterval(ref.current)};
-  const sc=()=>{if(!act)return 0;let c=0;act.qs.forEach((q,i)=>{if(ans[i]===q.a)c++});return c};
-  const doSub=()=>{sSub(true);const s=sc();const t=act.qs.length;sTk(p=>({...p,[act.id]:{s,t,pct:Math.round(s/t*100),d:new Date().toLocaleDateString()}}))};
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
 
-  // TRACKER
-  if(showTk){
-    const done=Object.keys(tk).length;const avg=done>0?Math.round(Object.values(tk).reduce((a,b)=>a+b.pct,0)/done):0;
-    return <Sec bg={`linear-gradient(180deg,#F0ECFF,${C.light})`}>
-      <button onClick={()=>sShowTk(false)} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'DM Sans',sans-serif", fontSize:13, color:C.pri, fontWeight:600, marginBottom:16 }}>← Back</button>
-      <ST pre="📊" title="My Progress" sub="Track your listening practice performance"/>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(140px,1fr))", gap:12, marginBottom:28 }}>
-        {[{n:`${done}/${exercises.length}`,l:"Completed",i:"✅",c:C.acc},{n:`${avg}%`,l:"Avg Score",i:"📈",c:C.pri},{n:Object.values(tk).filter(t=>t.pct===100).length+"",l:"Perfect",i:"🌟",c:C.hi},{n:Object.values(tk).filter(t=>t.pct<60).length+"",l:"Needs Review",i:"🔄",c:C.sec}].map((s,i)=>
-          <Card key={i} style={{ textAlign:"center", padding:16 }}>
-            <div style={{ fontSize:24, marginBottom:4 }}>{s.i}</div>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:26, fontWeight:800, color:s.c }}>{s.n}</div>
-            <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:10, color:C.muted, textTransform:"uppercase", letterSpacing:.8 }}>{s.l}</div>
-          </Card>)}
-      </div>
-      {["Beginner","Intermediate","Advanced"].map(l=>{
-        const le=exercises.filter(e=>e.level===l);
-        return <div key={l} style={{ marginBottom:20 }}>
-          <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, color:C.dark, margin:"0 0 10px", display:"flex", alignItems:"center", gap:6 }}><span style={{ display:"inline-block", width:8, height:8, borderRadius:"50%", background:lCol[l] }}/>{l} ({le.filter(e=>tk[e.id]).length}/{le.length})</h3>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))", gap:8 }}>
-            {le.map(ex=>{const t=tk[ex.id];return <div key={ex.id} style={{ display:"flex", alignItems:"center", gap:10, padding:"10px 14px", borderRadius:10, background:C.card, border:`1px solid ${t?t.pct===100?C.acc+"40":t.pct>=60?C.hi+"40":C.sec+"40":"#EEE"}`, fontSize:12, fontFamily:"'DM Sans',sans-serif" }}>
-              <div style={{ width:32, height:32, borderRadius:8, background:t?`${t.pct>=60?C.acc:C.sec}18`:"#F5F5F5", display:"flex", alignItems:"center", justifyContent:"center", fontSize:14, flexShrink:0 }}>{t?t.pct===100?"🌟":"✅":"⬜"}</div>
-              <div style={{ flex:1, minWidth:0 }}><div style={{ fontWeight:600, color:C.dark, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{ex.title}</div><div style={{ color:C.muted, fontSize:10 }}>{t?`${t.s}/${t.t} (${t.pct}%)`:"Not attempted"}</div></div>
-            </div>})}
-          </div>
-        </div>})}
-    </Sec>;
+buildNav();
+
+// === DATA ===
+var pubs=[
+  {y:2025,t:"A Bibliometric Analysis of Trends, Challenges, and Innovations in English Teaching Materials",j:"English Learning Innovation 6(2), 418-432",tp:"Article"},
+  {y:2025,t:"Global Research Trends of Role-play Method in English Language Teaching: A Bibliometric Analysis",j:"JETAL 7(1), 18-26",tp:"Article"},
+  {y:2025,t:"The Effect of Flashcard Media on English Vocabulary Acquisition in Elementary School",j:"JETLI 4(2), 75-87",tp:"Article"},
+  {y:2024,t:"Digital Transformation in Tourism Education: Driving Forces and Challenges",j:"JETLI 3(3), 174-182",tp:"Article"},
+  {y:2024,t:"The Correlation of Watching English Movies Habit and Listening Skill",j:"J. of English Language Teaching, Linguistics, and Literature Studies 4",tp:"Article"},
+  {y:2023,t:"Trends and Developments in Online Collaborative Writing: A Bibliometric Review",j:"JETLI 2(1), 41-55",tp:"Review"},
+  {y:2022,t:"The Implementation of Choral Reading Method in Improving Student's Reading Fluency",j:"JETLI 1(2), 47-65",tp:"Article"},
+  {y:2022,t:"Development of Web-Based English Proficiency Test Model for EFL Classroom",j:"Al-Lisan 7(1), 17-36",tp:"Article"},
+  {y:2016,t:"Pemerolehan Fonologi dan Sintaksis (Studi Kasus Anak Usia 2 Tahun)",j:"LingTera",tp:"Article"},
+  {y:2015,t:"Pengembangan Tes Gramatika Berbasis Web untuk Mahasiswa Pendidikan Bahasa Inggris",j:"LingTera 2(2), 111-121",tp:"Article"}
+];
+
+var pubColors={Article:'var(--pri)',Review:'var(--acc)',Book:'var(--sec)'};
+
+function renderPubs(){
+  var c=document.getElementById('pubList');
+  c.innerHTML=pubs.map(function(p){
+    var col=pubColors[p.tp]||'var(--pri)';
+    return '<div class="card"><div class="pub-row"><div class="pub-year" style="background:'+col+'14;color:'+col+'">'+p.y+'</div><div class="pub-info"><h4>'+p.t+'</h4><p>'+p.j+'</p></div><span class="badge" style="background:'+col+'18;color:'+col+'">'+p.tp+'</span></div></div>';
+  }).join('');
+}
+renderPubs();
+
+// === ABOUT DATA ===
+var edu=[
+  {d:"Master of Education (M.Pd.)",f:"Applied Linguistics — English Language Education",u:"Universitas Negeri Yogyakarta",y:"2012–2014"},
+  {d:"Bachelor of Education (S.Pd.)",f:"Tadris English Education",u:"IAIN Sultan Amai Gorontalo",y:"2007–2011"}
+];
+
+function renderEdu(){
+  var c=document.getElementById('eduList');
+  var cols=['var(--pri)','var(--sec)'];
+  c.innerHTML=edu.map(function(e,i){
+    return '<div class="card edu-card" style="border-left-color:'+cols[i%2]+'"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:2px"><h4 style="font-size:14px;font-weight:700">'+e.d+'</h4><span class="badge" style="background:'+cols[i%2]+'18;color:'+cols[i%2]+'">'+e.y+'</span></div><p style="font-size:13px;margin:2px 0">'+e.f+' — '+e.u+'</p></div>';
+  }).join('');
+}
+
+var ri=[
+  {n:"Digital Technology in ELT",i:"🎧"},
+  {n:"Bibliometric Analysis",i:"💻"},
+  {n:"Applied Linguistics",i:"🧠"},
+  {n:"English Teaching Methodology",i:"📚"},
+  {n:"Web-Based Language Testing",i:"🖥️"},
+  {n:"Adaptive Teaching Methods",i:"💡"}
+];
+
+function renderRI(){
+  document.getElementById('riList').innerHTML=ri.map(function(r){
+    return '<div class="card ri-card"><div class="ri-icon">'+r.i+'</div><p>'+r.n+'</p></div>';
+  }).join('');
+}
+
+var exp=[
+  {r:"Lecturer",o:"IAIN Sultan Amai Gorontalo, Dept. of English Language Education",p:"2016–Present",d:"Teaching English courses including Listening Comprehension. Active in research and academic journal management."},
+  {r:"Academic Journal Manager",o:"IAIN Sultan Amai Gorontalo",p:"2018–Present",d:"Involved in management of academic journals, contributing to scholarly articles on language education."},
+  {r:"Researcher",o:"IAIN Sultan Amai Gorontalo",p:"2016–Present",d:"Conducting research on digital technology in English teaching, bibliometric analysis, and adaptive teaching methods."},
+  {r:"Community Service",o:"Various schools in Gorontalo Province",p:"2019–Present",d:"English literacy programs and anti-bullying education at elementary schools."}
+];
+
+function renderExp(){
+  document.getElementById('expList').innerHTML=exp.map(function(e){
+    return '<div class="card"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:2px"><h4 style="font-size:14px;font-weight:700">'+e.r+'</h4><span style="font-size:11px;color:var(--mut)">'+e.p+'</span></div><p style="font-size:12px;color:var(--pri);font-weight:600;margin:2px 0">'+e.o+'</p><p style="font-size:12px;color:var(--mut);margin:2px 0 0">'+e.d+'</p></div>';
+  }).join('');
+}
+
+var certs=[
+  {n:"Sertifikat Pendidik",o:"Kemendikbudristek",y:"2019",i:"🏅"},
+  {n:"Master of Education (M.Pd.)",o:"Universitas Negeri Yogyakarta",y:"2014",i:"📄"},
+  {n:"Active Researcher & Journal Manager",o:"IAIN Sultan Amai Gorontalo",y:"2018–Present",i:"🏆"},
+  {n:"Community Service — Anti-Bullying",o:"SDN 03 Popayato Barat",y:"2025",i:"⭐"}
+];
+
+function renderCerts(){
+  document.getElementById('certList').innerHTML=certs.map(function(c){
+    return '<div class="card ri-card"><div style="font-size:22px;margin-bottom:6px">'+c.i+'</div><h4 style="font-size:13px;font-weight:700;margin-bottom:2px">'+c.n+'</h4><p style="font-size:11px;color:var(--mut)">'+c.o+' • '+c.y+'</p></div>';
+  }).join('');
+}
+
+renderEdu();renderRI();renderExp();renderCerts();
+
+// === RESOURCES ===
+var resList=[
+  {title:"Listening Comprehension Syllabus 2025/2026",type:"PDF",size:"2.1 MB",cat:"Syllabus"},
+  {title:"Module 1: Fundamentals of Active Listening",type:"PDF",size:"4.5 MB",cat:"Module"},
+  {title:"Module 2: Note-Taking Strategies",type:"PDF",size:"3.8 MB",cat:"Module"},
+  {title:"Module 3: Academic Listening Skills",type:"PDF",size:"5.2 MB",cat:"Module"},
+  {title:"Audio Pack — Beginner",type:"ZIP",size:"45 MB",cat:"Audio"},
+  {title:"Audio Pack — Intermediate",type:"ZIP",size:"62 MB",cat:"Audio"},
+  {title:"Audio Pack — Advanced",type:"ZIP",size:"78 MB",cat:"Audio"},
+  {title:"Midterm Study Guide",type:"PDF",size:"1.8 MB",cat:"Exam Prep"},
+  {title:"Grading Rubric",type:"PDF",size:"0.5 MB",cat:"Assessment"}
+];
+var resCats=["All","Syllabus","Module","Audio","Exam Prep","Assessment"];
+var resIcons={Syllabus:"📋",Module:"📖",Audio:"🔊","Exam Prep":"✍️",Assessment:"📊"};
+var resFilterCat="All";
+
+function renderResFilter(){
+  document.getElementById('resFilter').innerHTML=resCats.map(function(c){
+    return '<button class="filter-btn'+(resFilterCat===c?' active':'')+'" onclick="resFilterCat=\''+c+'\';renderResFilter();renderRes()">'+c+'</button>';
+  }).join('');
+}
+function renderRes(){
+  var fl=resFilterCat==="All"?resList:resList.filter(function(r){return r.cat===resFilterCat});
+  document.getElementById('resList').innerHTML=fl.map(function(r){
+    return '<div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 18px;flex-wrap:wrap"><div style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,60,225,.1);font-size:17px;flex-shrink:0">'+(resIcons[r.cat]||"📄")+'</div><div style="flex:1;min-width:160px"><h4 style="font-size:13px;font-weight:600">'+r.title+'</h4><span style="font-size:11px;color:var(--mut)">'+r.type+' • '+r.size+'</span></div><button style="padding:6px 16px;border-radius:50px;border:2px solid var(--pri);background:transparent;color:var(--pri);font-size:11px;font-weight:600;cursor:pointer">Download</button></div>';
+  }).join('');
+}
+renderResFilter();renderRes();
+
+// === BLOG ===
+var blogs=[
+  {id:1,title:"5 Common Listening Mistakes Indonesian Students Make",date:"Mar 15, 2026",cat:"Teaching Tips",excerpt:"After a decade of teaching, I've identified five recurring patterns that hold Indonesian EFL learners back.",time:"6 min",feat:true},
+  {id:2,title:"Why Podcasts Are the Best Tool for Listening Skills",date:"Mar 1, 2026",cat:"Learning Strategy",excerpt:"Discover how incorporating English podcasts into your daily routine can dramatically improve your listening.",time:"5 min",feat:false},
+  {id:3,title:"The Science Behind Active Listening",date:"Feb 18, 2026",cat:"Research",excerpt:"A review of recent neurolinguistic studies reveals fascinating insights about how our brains process spoken language.",time:"8 min",feat:true},
+  {id:4,title:"From Passive to Active: Transforming Listening Classes",date:"Feb 5, 2026",cat:"Teaching Tips",excerpt:"Traditional listening classes often involve playing audio and answering questions. Here's how to make them interactive.",time:"7 min",feat:false},
+  {id:5,title:"Top 10 YouTube Channels for Listening Practice (2026)",date:"Jan 20, 2026",cat:"Resources",excerpt:"A curated list of the best YouTube channels for different levels of English learners.",time:"4 min",feat:false},
+  {id:6,title:"TOEFL Listening: A Complete Preparation Guide",date:"Jan 8, 2026",cat:"Exam Prep",excerpt:"Comprehensive strategies for mastering the TOEFL listening section.",time:"10 min",feat:false}
+];
+var blogCats=["All","Teaching Tips","Learning Strategy","Research","Resources","Exam Prep"];
+var blogCatColors={"Teaching Tips":"var(--pri)","Learning Strategy":"var(--acc)",Research:"var(--sec)",Resources:"var(--hi)","Exam Prep":"#9B59B6"};
+var blogFilterCat="All";
+
+function renderBlogFilter(){
+  document.getElementById('blogFilter').innerHTML=blogCats.map(function(c){
+    return '<button class="filter-btn'+(blogFilterCat===c?' active':'')+'" onclick="blogFilterCat=\''+c+'\';renderBlogFilter();renderBlog()">'+c+'</button>';
+  }).join('');
+}
+function renderBlog(){
+  var fl=blogFilterCat==="All"?blogs:blogs.filter(function(b){return b.cat===blogFilterCat});
+  if(blogFilterCat==="All"){
+    document.getElementById('blogFeatured').innerHTML=blogs.filter(function(b){return b.feat}).map(function(b){
+      return '<div class="card blog-feat" onclick="alert(\'Full blog coming soon!\')"><span class="badge" style="background:rgba(255,210,63,.15);color:var(--hi)">Featured</span><h3 class="pf" style="font-size:18px;font-weight:800;margin:10px 0 6px;line-height:1.3">'+b.title+'</h3><p style="font-size:12px;color:#B8B8D0;line-height:1.6;margin-bottom:12px">'+b.excerpt+'</p><div style="display:flex;justify-content:space-between"><span style="font-size:11px;color:#8888AA">'+b.date+' • '+b.time+'</span><span style="font-size:11px;color:var(--acc);font-weight:600">Read →</span></div></div>';
+    }).join('');
+  } else {
+    document.getElementById('blogFeatured').innerHTML='';
   }
+  document.getElementById('blogList').innerHTML=fl.map(function(b){
+    var col=blogCatColors[b.cat]||'var(--pri)';
+    return '<div class="card blog-card" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center" onclick="alert(\'Full blog coming soon!\')"><div style="width:48px;height:48px;border-radius:12px;background:'+col+'12;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">📝</div><div style="flex:1;min-width:180px"><span class="badge" style="background:'+col+'18;color:'+col+'">'+b.cat+'</span><h4 style="font-size:14px;font-weight:700;margin:4px 0 2px">'+b.title+'</h4><span style="font-size:11px;color:var(--mut)">'+b.date+' • '+b.time+' read</span></div><span style="font-size:12px;color:var(--pri);font-weight:600">Read →</span></div>';
+  }).join('');
+}
+renderBlogFilter();renderBlog();
 
-  // ACTIVE EXERCISE
-  if(act) return <Sec bg={`linear-gradient(180deg,#F0ECFF,${C.light})`}>
-    <button onClick={()=>sAct(null)} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'DM Sans',sans-serif", fontSize:13, color:C.pri, fontWeight:600, marginBottom:16 }}>← Back</button>
-    <Card style={{ marginBottom:18, background:`linear-gradient(135deg,${C.dark},#2A1A5E)`, border:"none" }}>
-      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:6 }}><Badge color={lCol[act.level]}>{act.level}</Badge><Badge color="#FFF">{act.cat}</Badge></div>
-      <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:"clamp(20px,3vw,26px)", color:"#FFF", margin:"6px 0" }}>🎧 {act.title}</h3>
-      <p style={{ fontFamily:"'DM Sans',sans-serif", color:"#B8B8D0", fontSize:13, margin:"0 0 16px" }}>{act.desc}</p>
-      <div style={{ background:"rgba(255,255,255,.08)", borderRadius:12, padding:"12px 16px" }}>
-        <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-          <button onClick={doPlay} style={{ width:42, height:42, borderRadius:"50%", border:"none", cursor:"pointer", background:`linear-gradient(135deg,${C.pri},${C.sec})`, color:"#FFF", fontSize:16, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>{play?"⏸":"▶"}</button>
-          <div style={{ flex:1 }}>
-            <div style={{ height:5, background:"rgba(255,255,255,.1)", borderRadius:10, overflow:"hidden" }}><div style={{ width:`${prog}%`, height:"100%", borderRadius:10, background:`linear-gradient(90deg,${C.pri},${C.sec})`, transition:"width .1s" }}/></div>
-            <div style={{ display:"flex", justifyContent:"space-between", marginTop:3 }}><span style={{ fontSize:10, color:"#8888AA" }}>{Math.floor(prog/100*150)}s</span><span style={{ fontSize:10, color:"#8888AA" }}>{act.dur}</span></div>
-          </div>
-        </div>
-        <p style={{ fontSize:10, color:C.hi, margin:"8px 0 0", fontStyle:"italic" }}>⚡ Demo — real audio plays in the full version</p>
-      </div>
-    </Card>
-    <h3 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:16, fontWeight:700, color:C.dark, margin:"0 0 14px" }}>Comprehension Questions</h3>
-    {act.qs.map((q,qi)=>
-      <Card key={qi} style={{ marginBottom:10, borderLeft:`4px solid ${sub?(ans[qi]===q.a?C.acc:ans[qi]!==undefined?C.err:C.muted):C.pri}` }}>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, fontWeight:700, color:C.dark, margin:"0 0 10px" }}>{qi+1}. {q.q}</p>
-        <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
-          {q.o.map((op,oi)=>{
-            const sel=ans[qi]===oi, ok=q.a===oi;
-            let bg=sel?`${C.pri}12`:"#FAFAFA", bc=sel?C.pri:"#EEE";
-            if(sub&&ok){bg=`${C.acc}15`;bc=C.acc}if(sub&&sel&&!ok){bg="#FDE8E8";bc=C.err}
-            return <label key={oi} style={{ display:"flex", alignItems:"center", gap:8, padding:"9px 12px", borderRadius:10, border:`2px solid ${bc}`, background:bg, cursor:sub?"default":"pointer", transition:"all .2s", fontFamily:"'DM Sans',sans-serif", fontSize:13 }}>
-              <input type="radio" name={`q${qi}`} disabled={sub} checked={sel} onChange={()=>sAns(p=>({...p,[qi]:oi}))} style={{ accentColor:C.pri }}/><span style={{ flex:1 }}>{op}</span>{sub&&ok&&<span>✅</span>}{sub&&sel&&!ok&&<span>❌</span>}
-            </label>})}
-        </div>
-      </Card>
-    )}
-    {!sub?<button onClick={doSub} disabled={Object.keys(ans).length<act.qs.length} style={{ width:"100%", padding:"13px", borderRadius:12, border:"none", cursor:"pointer", background:Object.keys(ans).length<act.qs.length?"#DDD":`linear-gradient(135deg,${C.pri},${C.sec})`, color:"#FFF", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700 }}>Submit Answers</button>
-    :<Card style={{ background:`linear-gradient(135deg,${C.acc}12,${C.pri}06)`, border:`2px solid ${C.acc}30`, textAlign:"center" }}>
-      <div style={{ fontSize:40, marginBottom:4 }}>{sc()===act.qs.length?"🎉":sc()>=act.qs.length*.6?"👍":"💪"}</div>
-      <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:24, color:C.dark, margin:"0 0 4px" }}>Score: {sc()}/{act.qs.length}</h3>
-      <p style={{ fontFamily:"'DM Sans',sans-serif", color:C.muted, margin:"0 0 14px", fontSize:13 }}>{sc()===act.qs.length?"Perfect!":sc()>=act.qs.length*.6?"Good job!":"Keep practicing!"}</p>
-      <div style={{ display:"flex", gap:8, justifyContent:"center", flexWrap:"wrap" }}>
-        <button onClick={()=>start(act)} style={{ padding:"9px 20px", borderRadius:50, border:"none", cursor:"pointer", background:`linear-gradient(135deg,${C.pri},${C.sec})`, color:"#FFF", fontSize:12, fontWeight:600 }}>Try Again</button>
-        <button onClick={()=>sAct(null)} style={{ padding:"9px 20px", borderRadius:50, border:`2px solid ${C.pri}`, background:"transparent", color:C.pri, fontSize:12, fontWeight:600, cursor:"pointer" }}>Back</button>
-      </div>
-    </Card>}
-  </Sec>;
+// === LISTENING LAB (simplified for pure HTML) ===
+var exercises=[
+  {id:1,lv:"Beginner",title:"At the Airport",dur:"2:30",cat:"Daily Conversation",desc:"Listen to a passenger and airport staff checking in for a flight."},
+  {id:2,lv:"Beginner",title:"Ordering Food",dur:"2:00",cat:"Daily Conversation",desc:"Listen to a customer ordering food at a restaurant."},
+  {id:3,lv:"Beginner",title:"Asking for Directions",dur:"2:15",cat:"Daily Conversation",desc:"Listen to a tourist asking for directions to a museum."},
+  {id:4,lv:"Beginner",title:"At the Doctor's Office",dur:"2:45",cat:"Daily Conversation",desc:"Listen to a patient describing symptoms to a doctor."},
+  {id:5,lv:"Beginner",title:"Shopping for Clothes",dur:"2:00",cat:"Daily Conversation",desc:"Listen to a shopper finding the right size and color."},
+  {id:6,lv:"Beginner",title:"Checking Into a Hotel",dur:"2:30",cat:"Daily Conversation",desc:"Listen to a guest checking in and asking about amenities."},
+  {id:7,lv:"Beginner",title:"Making a Phone Call",dur:"1:45",cat:"Social",desc:"Listen to someone calling a friend to make weekend plans."},
+  {id:8,lv:"Beginner",title:"At the Supermarket",dur:"2:10",cat:"Daily Conversation",desc:"Listen to a shopper and cashier at checkout."},
+  {id:9,lv:"Beginner",title:"Introducing Yourself",dur:"1:30",cat:"Social",desc:"Listen to two students meeting at orientation day."},
+  {id:10,lv:"Beginner",title:"Weather Forecast",dur:"1:45",cat:"Media",desc:"Listen to a weather forecast from a morning news program."},
+  {id:11,lv:"Intermediate",title:"Lecture: Climate Change",dur:"5:00",cat:"Academic",desc:"Listen to a lecture about climate change effects on coastal cities."},
+  {id:12,lv:"Intermediate",title:"Job Interview Tips",dur:"4:30",cat:"Professional",desc:"Listen to a career coach giving job interview advice."},
+  {id:13,lv:"Intermediate",title:"Radio Interview: Entrepreneur",dur:"5:30",cat:"Media",desc:"Listen to a radio interview with a young entrepreneur."},
+  {id:14,lv:"Intermediate",title:"Campus Tour Guide",dur:"4:00",cat:"Academic",desc:"Listen to a university tour guide describing facilities."},
+  {id:15,lv:"Intermediate",title:"Podcast: Healthy Eating",dur:"6:00",cat:"Media",desc:"Listen to a nutritionist discussing healthy eating on a budget."},
+  {id:16,lv:"Intermediate",title:"Customer Service Complaint",dur:"4:15",cat:"Professional",desc:"Listen to a customer complaining about a defective product."},
+  {id:17,lv:"Intermediate",title:"Documentary: Ocean Life",dur:"5:45",cat:"Academic",desc:"Listen to a documentary about marine biodiversity."},
+  {id:18,lv:"Intermediate",title:"Planning a Group Project",dur:"4:30",cat:"Academic",desc:"Listen to students planning their group assignment."},
+  {id:19,lv:"Intermediate",title:"Museum Guide: Ancient Egypt",dur:"5:00",cat:"Academic",desc:"Listen to an audio guide about Egyptian artifacts."},
+  {id:20,lv:"Intermediate",title:"News: Tech in Education",dur:"4:00",cat:"Media",desc:"Listen to a news report about technology in classrooms."},
+  {id:21,lv:"Advanced",title:"TED Talk: Future of Education",dur:"8:00",cat:"Academic",desc:"Listen to a TED Talk about how AI will reshape education."},
+  {id:22,lv:"Advanced",title:"Debate: Social Media Regulation",dur:"7:00",cat:"Academic",desc:"Listen to a debate on government social media regulation."},
+  {id:23,lv:"Advanced",title:"Lecture: Psycholinguistics",dur:"9:00",cat:"Academic",desc:"Listen to a lecture on brain processing of second languages."},
+  {id:24,lv:"Advanced",title:"Panel: Globalization & Culture",dur:"8:30",cat:"Academic",desc:"Listen to experts discuss globalization's impact on culture."},
+  {id:25,lv:"Advanced",title:"Seminar: AI Ethics in Healthcare",dur:"10:00",cat:"Academic",desc:"Listen to a seminar on AI ethics in healthcare decisions."},
+  {id:26,lv:"Advanced",title:"BBC: History of English",dur:"8:00",cat:"Media",desc:"Listen to a documentary on the evolution of English."},
+  {id:27,lv:"Advanced",title:"Business Negotiation",dur:"7:30",cat:"Professional",desc:"Listen to a simulated business negotiation between companies."},
+  {id:28,lv:"Advanced",title:"Research: L2 Motivation",dur:"9:30",cat:"Academic",desc:"Listen to thesis research on L2 motivation in Indonesian students."},
+  {id:29,lv:"Advanced",title:"Cross-Cultural Communication",dur:"8:00",cat:"Professional",desc:"Listen to an expert on global workplace misunderstandings."},
+  {id:30,lv:"Advanced",title:"Keynote: Future of Language Teaching",dur:"10:00",cat:"Academic",desc:"Listen to a TESOL conference keynote on digital-age teaching."}
+];
+var lvColors={Beginner:"var(--acc)",Intermediate:"var(--hi)",Advanced:"var(--sec)"};
+var labFilter="All";
 
-  // LIST
-  return <Sec bg={`linear-gradient(180deg,#F0ECFF,${C.light})`}>
-    <ST pre="🎧" title="Listening Lab" sub="Practice listening skills with 30 interactive exercises at every level"/>
-    <div style={{ textAlign:"center", marginBottom:20 }}>
-      <button onClick={()=>sShowTk(true)} style={{ padding:"9px 20px", borderRadius:50, border:`2px solid ${C.pri}`, background:`${C.pri}08`, color:C.pri, fontSize:12, fontWeight:600, cursor:"pointer" }}>📊 My Progress ({Object.keys(tk).length}/{exercises.length})</button>
-    </div>
-    <div style={{ display:"flex", justifyContent:"center", gap:6, marginBottom:28, flexWrap:"wrap" }}>
-      {["All","Beginner","Intermediate","Advanced"].map(l=><button key={l} onClick={()=>sLv(l)} style={{ padding:"8px 20px", borderRadius:50, border:"none", cursor:"pointer", background:lv===l?`linear-gradient(135deg,${C.pri},${C.sec})`:"#FFF", color:lv===l?"#FFF":C.text, fontSize:13, fontWeight:600, boxShadow:lv===l?`0 4px 20px ${C.pri}30`:"0 2px 8px rgba(0,0,0,.04)", transition:"all .3s" }}>{l}{l!=="All"&&` (${exercises.filter(e=>e.level===l).length})`}</button>)}
-    </div>
-    <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))", gap:14 }}>
-      {filt.map(ex=>{const t=tk[ex.id];return <Card key={ex.id} onClick={()=>start(ex)} style={{ position:"relative", overflow:"hidden" }}>
-        {t&&<div style={{ position:"absolute", top:10, right:10, width:28, height:28, borderRadius:"50%", background:t.pct===100?C.acc:t.pct>=60?C.hi:C.sec, display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, color:"#FFF", fontWeight:700 }}>{t.pct===100?"★":t.pct+"%"}</div>}
-        <div style={{ display:"flex", gap:6, marginBottom:8, flexWrap:"wrap" }}><Badge color={lCol[ex.level]}>{ex.level}</Badge><Badge color={C.muted}>{ex.cat}</Badge></div>
-        <h4 style={{ fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, color:C.dark, margin:"0 0 4px" }}>{ex.title}</h4>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:C.muted, margin:"0 0 12px", lineHeight:1.5 }}>{ex.desc}</p>
-        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-          <span style={{ fontSize:11, color:C.muted }}>🕐 {ex.dur} • 📝 {ex.qs.length}Q</span>
-          <span style={{ padding:"4px 10px", borderRadius:50, fontSize:10, fontWeight:700, background:`linear-gradient(135deg,${C.pri},${C.sec})`, color:"#FFF" }}>START →</span>
-        </div>
-      </Card>})}
-    </div>
-  </Sec>;
+function renderLabFilter(){
+  var lvls=["All","Beginner","Intermediate","Advanced"];
+  document.getElementById('levelFilter').innerHTML=lvls.map(function(l){
+    var cnt=l==="All"?"":' ('+exercises.filter(function(e){return e.lv===l}).length+')';
+    return '<button class="filter-btn'+(labFilter===l?' active':'')+'" onclick="labFilter=\''+l+'\';renderLabFilter();renderExercises()" style="'+(labFilter===l?'background:linear-gradient(135deg,var(--pri),var(--sec));color:#FFF':'')+'">'+l+cnt+'</button>';
+  }).join('');
 }
 
-// ============ BLOG ============
-function Blog() {
-  const [cat,sCat]=useState("All");
-  const [act,sAct]=useState(null);
-  const cats=["All","Teaching Tips","Learning Strategy","Research","Resources","Exam Prep"];
-  const filt=cat==="All"?blogPosts:blogPosts.filter(p=>p.cat===cat);
-
-  if(act) return <Sec bg="#FFF">
-    <button onClick={()=>sAct(null)} style={{ background:"none", border:"none", cursor:"pointer", fontSize:13, color:C.pri, fontWeight:600, marginBottom:16 }}>← Back</button>
-    <article style={{ maxWidth:700, margin:"0 auto" }}>
-      <Badge color={catCol[act.cat]||C.pri}>{act.cat}</Badge>
-      <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:"clamp(22px,4vw,34px)", fontWeight:800, color:C.dark, lineHeight:1.3, margin:"10px 0" }}>{act.title}</h1>
-      <div style={{ display:"flex", gap:14, fontSize:12, color:C.muted, marginBottom:28, flexWrap:"wrap" }}>
-        <span>📅 {act.date}</span><span>⏱️ {act.time} read</span><span>✍️ Hasan Ayuba, M.Pd.</span>
-      </div>
-      <div style={{ background:`linear-gradient(135deg,${C.pri}08,${C.sec}08)`, borderRadius:14, height:200, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:28 }}><span style={{ fontSize:56 }}>📝</span></div>
-      <div style={{ fontSize:14, color:C.text, lineHeight:1.8 }}>
-        <p>{act.excerpt}</p>
-        <p style={{ color:C.muted, fontStyle:"italic", padding:20, borderLeft:`4px solid ${C.pri}`, background:`${C.pri}06`, borderRadius:"0 10px 10px 0", margin:"20px 0" }}>This is a preview. Your full article content would appear here with rich formatting, images, and embedded media.</p>
-        <p>As an English lecturer specializing in Listening Comprehension, I have spent years observing how students develop their skills through various approaches. This article draws from both research and classroom experience to provide practical insights.</p>
-      </div>
-    </article>
-  </Sec>;
-
-  return <Sec bg="#FFF">
-    <ST pre="✍️" title="Blog & Articles" sub="Insights on English teaching, learning strategies, and research"/>
-    <div style={{ display:"flex", justifyContent:"center", gap:6, marginBottom:28, flexWrap:"wrap" }}>
-      {cats.map(c=><button key={c} onClick={()=>sCat(c)} style={{ padding:"7px 16px", borderRadius:50, border:"none", cursor:"pointer", background:cat===c?C.dark:"#F5F3FF", color:cat===c?"#FFF":C.text, fontSize:12, fontWeight:600, transition:"all .3s" }}>{c}</button>)}
-    </div>
-    {cat==="All"&&<div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:14, marginBottom:28 }}>
-      {blogPosts.filter(p=>p.feat).map(p=><Card key={p.id} onClick={()=>sAct(p)} style={{ background:`linear-gradient(135deg,${C.dark},#2A1A5E)`, border:"none" }}>
-        <Badge color={C.hi}>Featured</Badge>
-        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, fontWeight:800, color:"#FFF", margin:"10px 0 6px", lineHeight:1.3 }}>{p.title}</h3>
-        <p style={{ fontSize:12, color:"#B8B8D0", lineHeight:1.6, margin:"0 0 12px" }}>{p.excerpt.substring(0,120)}...</p>
-        <div style={{ display:"flex", justifyContent:"space-between" }}><span style={{ fontSize:11, color:"#8888AA" }}>{p.date} • {p.time}</span><span style={{ fontSize:11, color:C.acc, fontWeight:600 }}>Read →</span></div>
-      </Card>)}
-    </div>}
-    <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-      {filt.map(p=><Card key={p.id} onClick={()=>sAct(p)} style={{ display:"flex", gap:14, flexWrap:"wrap", alignItems:"center" }}>
-        <div style={{ width:48, height:48, borderRadius:12, background:`${catCol[p.cat]||C.pri}12`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:22, flexShrink:0 }}>{catIco[p.cat]||"📝"}</div>
-        <div style={{ flex:1, minWidth:180 }}>
-          <Badge color={catCol[p.cat]||C.pri}>{p.cat}</Badge>
-          <h4 style={{ fontSize:14, fontWeight:700, color:C.dark, margin:"4px 0 2px" }}>{p.title}</h4>
-          <span style={{ fontSize:11, color:C.muted }}>{p.date} • {p.time} read</span>
-        </div>
-        <span style={{ fontSize:12, color:C.pri, fontWeight:600 }}>Read →</span>
-      </Card>)}
-    </div>
-  </Sec>;
+function renderExercises(){
+  var fl=labFilter==="All"?exercises:exercises.filter(function(e){return e.lv===labFilter});
+  document.getElementById('exerciseGrid').style.display='grid';
+  document.getElementById('exerciseDetail').style.display='none';
+  document.getElementById('exerciseGrid').innerHTML=fl.map(function(ex){
+    var col=lvColors[ex.lv];
+    return '<div class="card" style="cursor:pointer" onclick="alert(\'🎧 Exercise: '+ex.title+'\\n\\nThis is a demo. In the full version, audio and interactive questions will be available here.\\n\\nLevel: '+ex.lv+'\\nDuration: '+ex.dur+'\')"><div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap"><span class="badge" style="background:'+col+'18;color:'+col+'">'+ex.lv+'</span><span class="badge" style="background:var(--mut)18;color:var(--mut)">'+ex.cat+'</span></div><h4 style="font-size:15px;font-weight:700;margin-bottom:4px">'+ex.title+'</h4><p style="font-size:11px;color:var(--mut);margin-bottom:12px;line-height:1.5">'+ex.desc+'</p><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:11px;color:var(--mut)">🕐 '+ex.dur+'</span><span style="padding:4px 10px;border-radius:50px;font-size:10px;font-weight:700;background:linear-gradient(135deg,var(--pri),var(--sec));color:#FFF">START →</span></div></div>';
+  }).join('');
 }
 
-// ============ RESOURCES ============
-function Res() {
-  const [f,sF]=useState("All");
-  const cats=["All","Syllabus","Module","Audio","Exam Prep","Assessment"];
-  const fl=f==="All"?resList:resList.filter(r=>r.cat===f);
-  return <Sec bg={C.light}>
-    <ST pre="📁" title="Course Resources" sub="Download syllabi, modules, audio packs, and materials"/>
-    <div style={{ display:"flex", justifyContent:"center", gap:6, marginBottom:28, flexWrap:"wrap" }}>
-      {cats.map(c=><button key={c} onClick={()=>sF(c)} style={{ padding:"7px 16px", borderRadius:50, border:"none", cursor:"pointer", background:f===c?C.dark:"#FFF", color:f===c?"#FFF":C.text, fontSize:12, fontWeight:600, transition:"all .3s" }}>{c}</button>)}
-    </div>
-    <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
-      {fl.map((r,i)=><Card key={i} style={{ display:"flex", alignItems:"center", gap:12, padding:"12px 18px", flexWrap:"wrap" }}>
-        <div style={{ width:40, height:40, borderRadius:10, display:"flex", alignItems:"center", justifyContent:"center", background:`${C.pri}10`, fontSize:17, flexShrink:0 }}>{rIco[r.cat]}</div>
-        <div style={{ flex:1, minWidth:160 }}>
-          <h4 style={{ fontSize:13, fontWeight:600, color:C.dark, margin:0 }}>{r.title}</h4>
-          <span style={{ fontSize:11, color:C.muted }}>{r.type} • {r.size}</span>
-        </div>
-        <button style={{ padding:"6px 16px", borderRadius:50, border:`2px solid ${C.pri}`, background:"transparent", color:C.pri, fontSize:11, fontWeight:600, cursor:"pointer" }}>Download</button>
-      </Card>)}
-    </div>
-  </Sec>;
-}
-
-// ============ PUBLICATIONS (Home) ============
-function Pubs() {
-  const tc={Article:C.pri,Review:C.acc,Book:C.sec};
-  return <Sec bg={C.light}>
-    <ST title="Selected Publications" sub="Research in listening comprehension & EFL pedagogy"/>
-    <div style={{ display:"flex", flexDirection:"column", gap:12, maxWidth:900, margin:"0 auto" }}>
-      {pubs.map((p,i)=><Card key={i} style={{ display:"flex", alignItems:"flex-start", gap:14, flexWrap:"wrap" }}>
-        <div style={{ minWidth:46, height:46, borderRadius:12, background:`${tc[p.tp]||C.pri}14`, display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, fontSize:14, color:tc[p.tp]||C.pri }}>{p.y}</div>
-        <div style={{ flex:1, minWidth:180 }}>
-          <h4 style={{ fontSize:14, fontWeight:700, color:C.dark, margin:"0 0 3px" }}>{p.t}</h4>
-          <p style={{ fontSize:12, color:C.muted, margin:0 }}><em>{p.j}</em></p>
-        </div>
-        <Badge color={tc[p.tp]||C.pri}>{p.tp}</Badge>
-      </Card>)}
-    </div>
-  </Sec>;
-}
-
-// ============ CONTACT ============
-function Contact() {
-  return <section style={{ padding:"clamp(48px,8vw,80px) clamp(16px,4vw,24px)", background:`linear-gradient(160deg,${C.darker},${C.dark})`, position:"relative", overflow:"hidden" }}>
-    <div style={{ position:"absolute", top:-100, right:-100, width:400, height:400, borderRadius:"50%", background:`radial-gradient(circle,${C.pri}20,transparent 70%)`, filter:"blur(60px)" }}/>
-    <div style={{ maxWidth:800, margin:"0 auto", position:"relative", zIndex:1 }}>
-      <ST pre="📬" title="Get in Touch" sub=""/>
-      <p style={{ color:"#8888AA", textAlign:"center", margin:"-24px auto 32px", fontSize:14, maxWidth:500 }}>Open for research collaboration, guest lectures, thesis supervision, and academic consultations.</p>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(170px,1fr))", gap:12, marginBottom:28 }}>
-        {[{i:"📧",l:"Email",v:"hasan.ayuba@iaingorontalo.ac.id"},{i:"🏢",l:"Office",v:"Dept. of English Language Education"},{i:"📱",l:"WhatsApp",v:"+62 [Contact Number]"},{i:"🔬",l:"Google Scholar",v:"View Profile →"},{i:"📊",l:"SINTA",v:"View Profile →"},{i:"🆔",l:"ORCID",v:"0000-0000-0000-0000"},{i:"📘",l:"ResearchGate",v:"View Profile →"},{i:"💼",l:"LinkedIn",v:"View Profile →"}].map((c,i)=>
-          <div key={i} style={{ padding:"18px 12px", borderRadius:12, background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.08)", textAlign:"center" }}>
-            <div style={{ fontSize:24, marginBottom:6 }}>{c.i}</div>
-            <div style={{ fontSize:10, color:"#8888AA", textTransform:"uppercase", letterSpacing:.8, marginBottom:3 }}>{c.l}</div>
-            <div style={{ fontSize:12, color:"#FFF", fontWeight:500, wordBreak:"break-word" }}>{c.v}</div>
-          </div>
-        )}
-      </div>
-      <Card style={{ background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.08)" }}>
-        <h3 style={{ fontSize:15, fontWeight:700, color:"#FFF", margin:"0 0 10px", textAlign:"center" }}>🕐 Office Hours</h3>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))", gap:10 }}>
-          {[{d:"Monday",t:"09:00–11:00"},{d:"Wednesday",t:"13:00–15:00"},{d:"Friday",t:"10:00–12:00 (by appt)"}].map((o,i)=>
-            <div key={i} style={{ padding:"10px 14px", borderRadius:8, background:"rgba(255,255,255,.04)", textAlign:"center" }}>
-              <div style={{ fontSize:12, fontWeight:600, color:C.acc }}>{o.d}</div>
-              <div style={{ fontSize:11, color:"#B8B8D0", marginTop:2 }}>{o.t}</div>
-            </div>
-          )}
-        </div>
-      </Card>
-    </div>
-  </section>;
-}
-
-// ============ APP ============
-function App() {
-  const [pg,sPg]=useState("Home");
-  const [sc,sSc]=useState(false);
-  const [mo,sMo]=useState(false);
-  useEffect(()=>{const fn=()=>sSc(window.scrollY>50);window.addEventListener("scroll",fn);return()=>window.removeEventListener("scroll",fn)},[]);
-  useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"})},[pg]);
-
-  return <div style={{ fontFamily:"'DM Sans',sans-serif", background:C.light, minHeight:"100vh" }}>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <style>{`@media(max-width:768px){.desk-nav{display:none!important}.mob-btn{display:block!important}.mob-nav{display:flex!important}}@media(min-width:769px){.desk-nav{display:flex!important}.mob-btn{display:none!important}.mob-nav{display:none!important}}`}</style>
-
-    <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, padding:sc?"8px 16px":"12px 16px", background:sc?"rgba(15,15,26,.95)":"transparent", backdropFilter:sc?"blur(20px)":"none", transition:"all .4s", borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none" }}>
-      <div style={{ maxWidth:1100, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-        <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:18, fontWeight:800, color:"#FFF", cursor:"pointer" }} onClick={()=>{sPg("Home");sMo(false)}}><G>H. Ayuba</G></div>
-        <button className="mob-btn" onClick={()=>sMo(!mo)} style={{ display:"none", background:"none", border:"none", color:"#FFF", fontSize:22, cursor:"pointer" }}>{mo?"✕":"☰"}</button>
-        <div className="desk-nav" style={{ display:"flex", gap:4 }}>
-          {PAGES.map(p=><button key={p} onClick={()=>{sPg(p);sMo(false)}} style={{ padding:"6px 14px", borderRadius:50, border:"none", cursor:"pointer", background:pg===p?"rgba(108,60,225,.2)":"transparent", color:pg===p?"#FFF":"#AAAACC", fontSize:12, fontWeight:500, transition:"all .3s" }}>{p}</button>)}
-        </div>
-      </div>
-      {mo&&<div className="mob-nav" style={{ display:"none", flexDirection:"column", gap:2, padding:"8px 16px", background:"rgba(15,15,26,.98)", borderTop:"1px solid rgba(255,255,255,.06)" }}>
-        {PAGES.map(p=><button key={p} onClick={()=>{sPg(p);sMo(false)}} style={{ padding:"10px 14px", borderRadius:10, border:"none", cursor:"pointer", background:pg===p?"rgba(108,60,225,.2)":"transparent", color:pg===p?"#FFF":"#AAAACC", fontSize:14, fontWeight:500, textAlign:"left" }}>{p}</button>)}
-      </div>}
-    </nav>
-
-    {pg==="Home"&&<><Hero setPage={sPg}/><Pubs/></>}
-    {pg==="About"&&<div style={{ paddingTop:60 }}><About/></div>}
-    {pg==="Listening Lab"&&<div style={{ paddingTop:60 }}><Lab/></div>}
-    {pg==="Blog"&&<div style={{ paddingTop:60 }}><Blog/></div>}
-    {pg==="Resources"&&<div style={{ paddingTop:60 }}><Res/></div>}
-    {pg==="Contact"&&<div style={{ paddingTop:60 }}><Contact/></div>}
-
-    <footer style={{ padding:"16px", textAlign:"center", background:C.darker, borderTop:"1px solid rgba(255,255,255,.05)" }}>
-      <div style={{ display:"flex", justifyContent:"center", gap:8, marginBottom:8 }}>
-        <SocIcon icon="🎓" label="Scholar"/><SocIcon icon="📊" label="SINTA"/><SocIcon icon="🆔" label="ORCID"/><SocIcon icon="📘" label="ResearchGate"/><SocIcon icon="💼" label="LinkedIn"/>
-      </div>
-      <p style={{ fontSize:11, color:"#666680", margin:0 }}>© 2026 Hasan Ayuba, M.Pd. — IAIN Sultan Amai Gorontalo. Department of English Language Education.</p>
-    </footer>
-  </div>;
-}
-
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(React.createElement(App));
-  </script>
+renderLabFilter();renderExercises();
+</script>
 </body>
 </html>
